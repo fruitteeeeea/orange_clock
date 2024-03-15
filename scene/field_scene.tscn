@@ -1,0 +1,194 @@
+[gd_scene load_steps=22 format=3 uid="uid://y84d1fkp4cry"]
+
+[ext_resource type="Script" path="res://script/filed_manager.gd" id="1_6ow38"]
+[ext_resource type="Script" path="res://script/state_manager.gd" id="1_7df2t"]
+[ext_resource type="Script" path="res://script/top_left_button.gd" id="2_c3gvt"]
+[ext_resource type="Texture2D" uid="uid://bgmnqusbnsq33" path="res://assert/cursor.png" id="2_xy56k"]
+[ext_resource type="Texture2D" uid="uid://wgbnkjv0trj5" path="res://test/123.png" id="3_3qlga"]
+[ext_resource type="Script" path="res://script/bottom_button.gd" id="3_f7b5f"]
+[ext_resource type="Script" path="res://script/cursor.gd" id="4_2i84w"]
+[ext_resource type="Script" path="res://script/harvest_button.gd" id="4_gunxn"]
+[ext_resource type="Texture2D" uid="uid://coqdriybb3213" path="res://assert/top_left_button.png" id="5_tdjih"]
+[ext_resource type="PackedScene" uid="uid://bj8rxrkwnxaha" path="res://test/time_lable.tscn" id="7_88jv1"]
+[ext_resource type="Texture2D" uid="uid://car5vkm3y1tnt" path="res://assert/Teemo Basic emote animations sprite sheet.png" id="8_400w7"]
+[ext_resource type="Script" path="res://script/Camera2D.gd" id="9_hj7l2"]
+[ext_resource type="Texture2D" uid="uid://c8ip1xby8l5my" path="res://test/box.png" id="9_j88sr"]
+[ext_resource type="Texture2D" uid="uid://bo7sexrul1rl8" path="res://assert/Water.png" id="10_16vgn"]
+[ext_resource type="Texture2D" uid="uid://detslj0spn6x5" path="res://test/1234.png" id="14_pikh5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ek8lc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44u2k"]
+atlas = ExtResource("8_400w7")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36c1e"]
+atlas = ExtResource("8_400w7")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xurv3"]
+atlas = ExtResource("8_400w7")
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekugk"]
+atlas = ExtResource("8_400w7")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4s3j4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44u2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36c1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xurv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekugk")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}]
+
+[node name="Field_Scene" type="Node2D"]
+
+[node name="black_ground" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="black_ground"]
+material = SubResource("ShaderMaterial_ek8lc")
+offset_left = -128.0
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = 240.0
+texture = ExtResource("10_16vgn")
+stretch_mode = 1
+
+[node name="island" type="Sprite2D" parent="."]
+texture = ExtResource("3_3qlga")
+
+[node name="state_manager" type="Node2D" parent="."]
+script = ExtResource("1_7df2t")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="state_manager"]
+
+[node name="top_left_button" type="Button" parent="state_manager/CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+offset_top = 150.0
+offset_right = 192.0
+offset_bottom = 230.0
+text = "start"
+script = ExtResource("2_c3gvt")
+
+[node name="topleft_button_texture" type="Sprite2D" parent="state_manager/CanvasLayer2/top_left_button"]
+scale = Vector2(3, 3)
+texture = ExtResource("5_tdjih")
+centered = false
+offset = Vector2(-2, -3)
+vframes = 5
+frame = 4
+
+[node name="bottom_button" type="Button" parent="state_manager/CanvasLayer2"]
+offset_left = 144.0
+offset_top = 896.0
+offset_right = 248.0
+offset_bottom = 976.0
+text = "种植"
+script = ExtResource("3_f7b5f")
+
+[node name="harvest_button" type="Button" parent="state_manager/CanvasLayer2"]
+offset_left = 144.0
+offset_top = 896.0
+offset_right = 248.0
+offset_bottom = 976.0
+text = "收获"
+script = ExtResource("4_gunxn")
+
+[node name="time_lable" parent="state_manager/CanvasLayer2" instance=ExtResource("7_88jv1")]
+offset_left = 200.0
+offset_top = 400.0
+offset_right = 280.0
+offset_bottom = 480.0
+scale = Vector2(3, 3)
+wait_time = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2"]
+visible = false
+position = Vector2(304, 168)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_4s3j4")
+animation = &"happy"
+autoplay = "happy"
+frame_progress = 0.121126
+
+[node name="Box" type="Sprite2D" parent="state_manager/CanvasLayer2"]
+scale = Vector2(3, 3)
+texture = ExtResource("9_j88sr")
+centered = false
+
+[node name="Debug" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
+offset_right = 190.0
+offset_bottom = 40.0
+
+[node name="调试按钮1" type="Button" parent="Debug/HBoxContainer"]
+layout_mode = 2
+text = "调试按钮1"
+
+[node name="调试：更改作物状态" type="Button" parent="Debug/HBoxContainer"]
+layout_mode = 2
+text = "更改作物状态
+"
+
+[node name="Button" type="Button" parent="Debug/HBoxContainer"]
+layout_mode = 2
+text = "收获
+"
+
+[node name="filed_manager" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("1_6ow38")
+
+[node name="filed_area" type="Control" parent="filed_manager"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(24, 24)
+
+[node name="cursor" type="Sprite2D" parent="."]
+position = Vector2(80, -60)
+texture = ExtResource("2_xy56k")
+offset = Vector2(2.08165e-12, -30)
+script = ExtResource("4_2i84w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("9_hj7l2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("14_pikh5")
+
+[connection signal="enter_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_enter_plant_state"]
+[connection signal="pause_timer" from="state_manager" to="state_manager/CanvasLayer2/time_lable" method="_on_state_manager_pause_timer"]
+[connection signal="updata_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_updata_plant_state"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/top_left_button" to="state_manager" method="_on_top_left_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="filed_manager" method="_on_bottom_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]
+[connection signal="label_time_out" from="state_manager/CanvasLayer2/time_lable" to="state_manager" method="_on_time_lable_label_time_out"]
+[connection signal="harvest_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_harvest_finished"]
+[connection signal="plant_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_plant_finished"]

@@ -1,0 +1,471 @@
+[gd_scene load_steps=41 format=3 uid="uid://cchssaw0no8f6"]
+
+[ext_resource type="Script" path="res://test/ui_manager.gd" id="1_anqp6"]
+[ext_resource type="Texture2D" uid="uid://wgbnkjv0trj5" path="res://test/123.png" id="1_gnsus"]
+[ext_resource type="Texture2D" uid="uid://dopyspeqbln36" path="res://test/top_left_button.png" id="2_dhuwt"]
+[ext_resource type="Texture2D" uid="uid://jo4nm0ielcj3" path="res://test/button_anima.png" id="2_fo0pa"]
+[ext_resource type="Texture2D" uid="uid://djcdns0x4y65q" path="res://test/top_left_button_animation.png" id="2_in56k"]
+[ext_resource type="Texture2D" uid="uid://bb0fbkrjt8krq" path="res://test/dock_background.png" id="2_tqn6t"]
+[ext_resource type="Texture2D" uid="uid://dw7v1xus43ltf" path="res://test/chicken.png" id="3_dxm6a"]
+[ext_resource type="Texture2D" uid="uid://c8ip1xby8l5my" path="res://test/box.png" id="4_q1e8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1n66"]
+atlas = ExtResource("2_in56k")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ari4"]
+atlas = ExtResource("2_in56k")
+region = Rect2(512, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoybs"]
+atlas = ExtResource("2_in56k")
+region = Rect2(576, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi74k"]
+atlas = ExtResource("2_in56k")
+region = Rect2(640, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jukv4"]
+atlas = ExtResource("2_in56k")
+region = Rect2(704, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj4nk"]
+atlas = ExtResource("2_in56k")
+region = Rect2(768, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf5xp"]
+atlas = ExtResource("2_in56k")
+region = Rect2(0, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voqdt"]
+atlas = ExtResource("2_in56k")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt20v"]
+atlas = ExtResource("2_in56k")
+region = Rect2(64, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb0ou"]
+atlas = ExtResource("2_in56k")
+region = Rect2(128, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah6rc"]
+atlas = ExtResource("2_in56k")
+region = Rect2(192, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg5ee"]
+atlas = ExtResource("2_in56k")
+region = Rect2(256, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjpdq"]
+atlas = ExtResource("2_in56k")
+region = Rect2(320, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmmiq"]
+atlas = ExtResource("2_in56k")
+region = Rect2(384, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8no7"]
+atlas = ExtResource("2_in56k")
+region = Rect2(448, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0evki"]
+atlas = ExtResource("2_in56k")
+region = Rect2(512, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lni2g"]
+atlas = ExtResource("2_in56k")
+region = Rect2(576, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kifom"]
+atlas = ExtResource("2_in56k")
+region = Rect2(640, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac61e"]
+atlas = ExtResource("2_in56k")
+region = Rect2(704, 0, 64, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlm7h"]
+atlas = ExtResource("2_in56k")
+region = Rect2(768, 0, 64, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eylit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1n66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ari4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoybs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi74k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jukv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj4nk")
+}],
+"loop": false,
+"name": &"chicken_land",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf5xp")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voqdt")
+}],
+"loop": true,
+"name": &"not_show",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt20v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fb0ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah6rc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg5ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjpdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmmiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8no7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0evki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lni2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kifom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac61e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlm7h")
+}],
+"loop": false,
+"name": &"show_up",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkxpi"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(0, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyxsr"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(490, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0rje"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(98, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnrp0"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(196, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shpc5"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(294, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odb62"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(392, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iko1i"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(588, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npwun"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(686, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovr0r"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(784, 0, 98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea4x1"]
+atlas = ExtResource("2_fo0pa")
+region = Rect2(882, 0, 98, 51)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_loww5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkxpi")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyxsr")
+}],
+"loop": true,
+"name": &"not_pressed",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0rje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnrp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shpc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odb62")
+}],
+"loop": false,
+"name": &"pop_up",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iko1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npwun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovr0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea4x1")
+}],
+"loop": false,
+"name": &"pressed",
+"speed": 15.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="VisalDesign" type="Sprite2D" parent="."]
+position = Vector2(153, 545)
+scale = Vector2(3, 3)
+texture = ExtResource("1_gnsus")
+metadata/_edit_lock_ = true
+
+[node name="ui_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_anqp6")
+
+[node name="lag_version" type="AnimatedSprite2D" parent="ui_manager"]
+position = Vector2(2.08165e-12, 50)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_eylit")
+animation = &"show_up"
+frame = 11
+frame_progress = 1.0
+centered = false
+
+[node name="top_letf_button" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="top_letf_button"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 179.0
+offset_right = 135.0
+offset_bottom = 260.0
+
+[node name="TextureRect" type="TextureRect" parent="top_letf_button/Panel"]
+visible = false
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 27.0
+scale = Vector2(3, 3)
+texture = ExtResource("2_dhuwt")
+stretch_mode = 2
+
+[node name="chicken" type="TextureRect" parent="top_letf_button/Panel"]
+offset_left = 23.0
+offset_top = -105.0
+offset_right = 63.0
+offset_bottom = -65.0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(2.08165e-12, 10)
+texture = ExtResource("3_dxm6a")
+
+[node name="dock" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -179.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Panel" type="Panel" parent="dock"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="dock/Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -19.0
+offset_right = -49.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("2_tqn6t")
+stretch_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="dock/Panel"]
+position = Vector2(0, 36)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_loww5")
+animation = &"pressed"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="dock/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="dock/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="dock/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="dock/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_q1e8q")
+metadata/_edit_lock_ = true
+
+[node name="debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 76.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="debug"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dock动画" type="Button" parent="debug/HBoxContainer"]
+layout_mode = 2
+text = "dock动画调试
+"
+
+[node name="button动画" type="Button" parent="debug/HBoxContainer"]
+layout_mode = 2
+text = "button调试动画
+"
+
+[node name="重制所有" type="Button" parent="debug/HBoxContainer"]
+layout_mode = 2
+text = "重制
+"
+
+[node name="左上按钮动画" type="Button" parent="debug/HBoxContainer"]
+layout_mode = 2
+text = "左上按钮动画
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="debug"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dock动画" type="Button" parent="debug/HBoxContainer2"]
+layout_mode = 2
+text = "dock动画调试
+"
+
+[node name="button动画" type="Button" parent="debug/HBoxContainer2"]
+layout_mode = 2
+text = "button调试动画
+"
+
+[node name="重制所有" type="Button" parent="debug/HBoxContainer2"]
+layout_mode = 2
+text = "重制
+"
+
+[node name="左上按钮动画" type="Button" parent="debug/HBoxContainer2"]
+layout_mode = 2
+text = "左上按钮动画
+"
+
+[connection signal="pressed" from="debug/HBoxContainer/dock动画" to="ui_manager" method="_on_dock动画_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer/button动画" to="ui_manager" method="_on_button动画_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer/重制所有" to="ui_manager" method="_on_重制所有_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer/左上按钮动画" to="ui_manager" method="_on_左上按钮动画_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer2/dock动画" to="ui_manager" method="_on_dock动画_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer2/button动画" to="ui_manager" method="_on_button动画_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer2/重制所有" to="ui_manager" method="_on_重制所有_pressed"]
+[connection signal="pressed" from="debug/HBoxContainer2/左上按钮动画" to="ui_manager" method="_on_左上按钮动画_pressed"]

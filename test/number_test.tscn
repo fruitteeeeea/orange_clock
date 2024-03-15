@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2dukyuhha8ru"]
+
+[ext_resource type="PackedScene" uid="uid://bvjw36vy7jtkf" path="res://number_changer.tscn" id="1_ff5ci"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="number_changer2" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(-24, -16)
+
+[node name="number_changer7" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(-24, 24)
+
+[node name="number_changer8" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(0, 24)
+
+[node name="number_changer9" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(24, 24)
+
+[node name="number_changer5" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(0, -16)
+
+[node name="number_changer6" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(24, -16)
+
+[node name="number_changer" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(-24, -56)
+
+[node name="number_changer3" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(0, -56)
+
+[node name="number_changer4" parent="." instance=ExtResource("1_ff5ci")]
+position = Vector2(24, -56)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)

@@ -1,0 +1,178 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp4lbbrw0abto"]
+
+[ext_resource type="Texture2D" uid="uid://dedt03bxpdkr6" path="res://assert/flower.png" id="1_yp538"]
+[ext_resource type="Script" path="res://script/flower_test.gd" id="2_v8hee"]
+
+[sub_resource type="Animation" id="Animation_dovkw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_oigf5"]
+resource_name = "being_harvest"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.267943, 0.267943, 0.267943, 0.267943),
+"update": 0,
+"values": [0.0, -0.261799, 0.523599, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.267943, 0.267943, 0.267943, 0.267943),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 1.2), Vector2(1.3, 0.5), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.267943, 1, 0.267943),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.772549), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, -16), Vector2(2.08165e-12, -46)]
+}
+
+[sub_resource type="Animation" id="Animation_iw701"]
+resource_name = "bounce"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.0717937, 0.0717937, 0.0717937, 0.0717937, 0.0717937),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.65, 1), Vector2(2, 0.5), Vector2(0.65, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(0.0717937, 0.0717937, 0.0717937, 0.0717937, 0.0717937),
+"update": 0,
+"values": [0.0, -0.20944, 0.20944, -0.0872665, 3.48787e-16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mn8oh"]
+_data = {
+"RESET": SubResource("Animation_dovkw"),
+"being_harvest": SubResource("Animation_oigf5"),
+"bounce": SubResource("Animation_iw701")
+}
+
+[node name="flower_test" type="Sprite2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_yp538")
+offset = Vector2(2.08165e-12, -16)
+hframes = 3
+script = ExtResource("2_v8hee")
+
+[node name="box_position" type="Marker2D" parent="."]
+position = Vector2(-24, 72)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera2D")
+libraries = {
+"": SubResource("AnimationLibrary_mn8oh")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = -0.34903
+scale = Vector2(1.2896, 1.05217)
+zoom = Vector2(5, 5)
+
+[node name="Debug" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
+offset_right = 80.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+
+[node name="调试_收获" type="Button" parent="Debug/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "收获 "
+
+[connection signal="pressed" from="Debug/HBoxContainer/调试_收获" to="." method="_on_调试_收获_pressed"]
