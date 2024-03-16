@@ -164,7 +164,7 @@ func move_cursor_and_plant():
 		do_plant(blocks[current_block_index].position)
 		blocks[current_block_index].not_focus()
 		#移动光标
-		cursor.move_cursor(Vector2(80, -60))
+		cursor.move_cursor(Vector2(150, -60))
 		
 		##消失按钮
 		#plant_button.position = Vector2(144, 900)

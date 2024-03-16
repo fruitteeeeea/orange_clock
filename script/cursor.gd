@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var initial_position: Vector2 = Vector2(80, -60)
+@export var initial_position: Vector2 = Vector2(150, -60)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
