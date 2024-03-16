@@ -3,12 +3,14 @@
 [ext_resource type="Script" path="res://script/time_lable2.gd" id="1_1ioa0"]
 [ext_resource type="PackedScene" uid="uid://bvjw36vy7jtkf" path="res://test/number_changer.tscn" id="2_lu6kg"]
 
-
 [node name="time_lable" type="Label" node_paths=PackedStringArray("timer")]
-offset_left = 120.0
-offset_top = 150.0
-offset_right = 200.0
-offset_bottom = 230.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_right = -115.0
+offset_bottom = 80.0
+grow_horizontal = 2
 script = ExtResource("1_1ioa0")
 timer = NodePath("Timer")
 wait_time = 2
@@ -18,25 +20,24 @@ wait_time = 10.0
 one_shot = true
 
 [node name="flip_clock" type="Node2D" parent="."]
-position = Vector2(-32, -22)
 
 [node name="minute_ten" parent="flip_clock" instance=ExtResource("2_lu6kg")]
-position = Vector2(16, 26)
+position = Vector2(-40, 2.08165e-12)
 
 [node name="minue_one" parent="flip_clock" instance=ExtResource("2_lu6kg")]
-position = Vector2(42, 26)
+position = Vector2(-15, 2.08165e-12)
 
 [node name="second_ten" parent="flip_clock" instance=ExtResource("2_lu6kg")]
-position = Vector2(76, 26)
+position = Vector2(15, 2.08165e-12)
 
 [node name="second_one" parent="flip_clock" instance=ExtResource("2_lu6kg")]
-position = Vector2(102, 26)
+position = Vector2(40, 2.08165e-12)
 
 [node name="time_text" type="Label" parent="."]
 layout_mode = 0
-offset_top = 26.0
+offset_top = 25.0
 offset_right = 48.0
-offset_bottom = 75.0
+offset_bottom = 74.0
 text = "倒计时
 09:12"
 

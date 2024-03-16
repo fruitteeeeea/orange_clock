@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3n42nn0abfh"]
+
+[ext_resource type="Texture2D" uid="uid://bb0fbkrjt8krq" path="res://test/dock_background.png" id="1_cwond"]
+[ext_resource type="Script" path="res://test/dock.gd" id="1_o326i"]
+[ext_resource type="PackedScene" uid="uid://dssmubdwges61" path="res://test/dock_animation.tscn" id="3_3e3lr"]
+[ext_resource type="Script" path="res://test/dock_animation.gd" id="4_fylvp"]
+
+[node name="dock" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -179.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("1_o326i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -19.0
+offset_right = -49.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_cwond")
+stretch_mode = 2
+
+[node name="AnimatedSprite2D" parent="Panel" instance=ExtResource("3_3e3lr")]
+script = ExtResource("4_fylvp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

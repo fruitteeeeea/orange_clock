@@ -83,7 +83,7 @@ func WaittingToStart():
 #等待倒计时结束
 func WattingCountDown():
 	topleft_button.hide_top_left_button()
-	topleft_button.show_top_left_button("pause")
+	topleft_button.show_top_left_button_2("pause")
 	topleft_button_texture.frame = 2
 	time_lable.show_timer_lable()
 	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))

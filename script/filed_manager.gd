@@ -207,6 +207,7 @@ func _on_state_manager_enter_plant_state():
 
 
 func _on_bottom_button_pressed():
+	$"../state_manager/CanvasLayer2/bottom_button/AnimatedSprite2D".button_pressed()
 	plant_stuff()
 
 

@@ -1,12 +1,16 @@
 extends Button
 
 #设置显示及隐藏位置
-@export var position_show = Vector2(144, 688)
-@export var position_hide = Vector2(144, 900)
+@export var position_show = Vector2(144.5, 630)
+@export var position_hide = Vector2(144.5, 900)
+
+@onready var dock = $dock
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+
 
 func show_bottom_button():
 	var tween = create_tween()

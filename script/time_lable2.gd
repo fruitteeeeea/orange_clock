@@ -7,8 +7,8 @@ signal label_time_out
 @export var wait_time:int = 5
 
 #设置显示及隐藏位置
-@export var position_show = Vector2(120, 150)
-@export var position_hide = Vector2(-200, 150)
+@export var position_show = Vector2(194.5, 144)
+@export var position_hide = Vector2(194.5, 0)
 
 #是否处于暂停状态
 var timer_pause:bool = false
@@ -38,7 +38,7 @@ func _ready():
 	#设定timer为one_shot 否则他会自动重启
 	timer.one_shot = true
 	timer.wait_time = wait_time
-	
+	print("time_lable_position:", self.position)
 	pass 
 
 func update_timer_number():

@@ -1,1 +1,12 @@
 res://scene/field_scene.tscn
+res://test/time_lable.tscn
+res://script/time_lable2.gd
+res://script/state_manager.gd
+res://test/ui.tscn
+res://script/bottom_button.gd
+res://test/dock.tscn
+res://test/dock.gd
+res://script/filed_manager.gd
+res://test/dock_animation.gd
+res://test/dock_animation.tscn
+res://script/top_left_button.gd
