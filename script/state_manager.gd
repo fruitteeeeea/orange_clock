@@ -145,14 +145,16 @@ func pause_and_continue():
 	emit_signal("pause_timer")
 	if pause == false:
 		topleft_button.hide_top_left_button()
-		topleft_button.show_top_left_button("continue")
-		topleft_button_texture.frame = 5
+		topleft_button.show_top_left_button_2("continue")
+		#注意看continue是第几帧
+		topleft_button_texture.frame = 3
 		#切换一下当前的暂停状态
 		pause = not pause
 	else:
 		topleft_button.hide_top_left_button()
-		topleft_button.show_top_left_button("pause")
-		topleft_button_texture.frame = 3
+		topleft_button.show_top_left_button_2("pause")
+		#注意看pause是第几帧
+		topleft_button_texture.frame = 2
 		#切换一下当前的暂停状态
 		pause = not pause
 

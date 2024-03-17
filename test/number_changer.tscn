@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://bvjw36vy7jtkf"]
+[gd_scene load_steps=146 format=3 uid="uid://bvjw36vy7jtkf"]
 
 [ext_resource type="Script" path="res://test/number_changer.gd" id="1_4fhap"]
 [ext_resource type="Texture2D" uid="uid://bmixne4h1kg1h" path="res://test/number_am_FW.png" id="2_25lef"]
@@ -225,34 +225,6 @@ atlas = ExtResource("3_lwiwv")
 region = Rect2(164, 340, 24, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07hkh"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(196, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqubt"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(4, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6kjvw"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(36, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3ljv"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(68, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_52lrp"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(100, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_avdxr"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(132, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4olrg"]
-atlas = ExtResource("3_lwiwv")
-region = Rect2(164, 340, 24, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir1o2"]
 atlas = ExtResource("3_lwiwv")
 region = Rect2(196, 340, 24, 40)
 
@@ -517,27 +489,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_07hkh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iqubt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6kjvw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g3ljv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_52lrp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_avdxr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4olrg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ir1o2")
 }],
 "loop": false,
 "name": &"7",
@@ -1144,7 +1095,7 @@ script = ExtResource("1_4fhap")
 
 [node name="numbuer_animation_backward" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2gv0m")
-animation = &"6"
+animation = &"7"
 
 [node name="number_animation_forward" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -1,6 +1,6 @@
-res://test/number_changer.tscn
 res://scene/field_scene.tscn
 res://test/time_lable.tscn
 res://test/ui.tscn
+res://test/number_changer.tscn
 res://test/number_test.tscn
-res://test/number_changer.gd
+res://script/state_manager.gd
