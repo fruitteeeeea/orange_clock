@@ -126,7 +126,7 @@ offset_left = -0.5
 offset_right = 0.5
 offset_bottom = 23.0
 scale = Vector2(3, 3)
-wait_time = 3
+wait_time = 20
 metadata/_edit_vertical_guides_ = [40.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2"]

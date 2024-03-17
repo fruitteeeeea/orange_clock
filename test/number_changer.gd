@@ -11,6 +11,7 @@ var is_animating = false # 是否正在播放动画
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#numbuer_animation.play(str(0))
 	pass # Replace with function body.
 
 #取得需要播放的数值
