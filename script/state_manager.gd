@@ -16,6 +16,7 @@ var pause: bool = false
 
 @onready var bottom_button = $CanvasLayer2/bottom_button
 @onready var time_lable = $CanvasLayer2/time_lable
+@onready var cancel_timer_button = $CanvasLayer2/cancel_timer_button
 @onready var harvest_button = $CanvasLayer2/harvest_button
 
 #===相机===
@@ -148,6 +149,10 @@ func pause_and_continue():
 		topleft_button.show_top_left_button_2("continue")
 		#注意看continue是第几帧
 		topleft_button_texture.frame = 3
+		
+		#弹出取消按钮
+		cancel_timer_button.show_cancel_timer_button()
+		
 		#切换一下当前的暂停状态
 		pause = not pause
 	else:
@@ -155,8 +160,18 @@ func pause_and_continue():
 		topleft_button.show_top_left_button_2("pause")
 		#注意看pause是第几帧
 		topleft_button_texture.frame = 2
+		
+		#隐藏取消按钮
+		cancel_timer_button.hide_cancel_timer_button()
+		
 		#切换一下当前的暂停状态
 		pause = not pause
+
+func cancel_timer():
+	if pause == true:
+		emit_signal("pause_timer")
+		execute_current_state_logic()
+		
 
 
 #接受来自filed_mananger的种植完毕信号
@@ -176,3 +191,9 @@ func _on_filed_manager_harvest_finished():
 
 func _on_harvest_button_pressed():
 	harvest_button.hide_harvest_button()
+
+
+func _on_cancel_timer_button_pressed():
+	cancel_timer()
+	cancel_timer_button.hide_cancel_timer_button()
+	pass # Replace with function body.

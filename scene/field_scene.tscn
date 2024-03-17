@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://y84d1fkp4cry"]
+[gd_scene load_steps=26 format=3 uid="uid://y84d1fkp4cry"]
 
 [ext_resource type="Script" path="res://script/filed_manager.gd" id="1_6ow38"]
 [ext_resource type="Script" path="res://script/state_manager.gd" id="1_7df2t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://script/bottom_button.gd" id="3_f7b5f"]
 [ext_resource type="Script" path="res://script/cursor.gd" id="4_2i84w"]
 [ext_resource type="Script" path="res://script/harvest_button.gd" id="4_gunxn"]
+[ext_resource type="Script" path="res://scene/cancel_timer_button.gd" id="5_8mr6h"]
 [ext_resource type="Texture2D" uid="uid://coqdriybb3213" path="res://assert/top_left_button.png" id="5_tdjih"]
 [ext_resource type="PackedScene" uid="uid://bj8rxrkwnxaha" path="res://test/time_lable.tscn" id="7_88jv1"]
 [ext_resource type="PackedScene" uid="uid://dssmubdwges61" path="res://test/dock_animation.tscn" id="7_ex8uh"]
@@ -113,6 +114,23 @@ texture = ExtResource("7_qbutg")
 [node name="AnimatedSprite2D" parent="state_manager/CanvasLayer2/bottom_button" instance=ExtResource("7_ex8uh")]
 position = Vector2(40, 72)
 
+[node name="cancel_timer_button" type="Button" parent="state_manager/CanvasLayer2"]
+offset_left = 400.0
+offset_top = 625.0
+offset_right = 520.0
+offset_bottom = 760.0
+text = "Cancle timer
+"
+script = ExtResource("5_8mr6h")
+
+[node name="time_lable" parent="state_manager/CanvasLayer2" instance=ExtResource("7_88jv1")]
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+scale = Vector2(3, 3)
+wait_time = 3
+metadata/_edit_vertical_guides_ = [40.0]
+
 [node name="harvest_button" type="Button" parent="state_manager/CanvasLayer2"]
 offset_left = 144.0
 offset_top = 896.0
@@ -120,14 +138,6 @@ offset_right = 248.0
 offset_bottom = 976.0
 text = "收获"
 script = ExtResource("4_gunxn")
-
-[node name="time_lable" parent="state_manager/CanvasLayer2" instance=ExtResource("7_88jv1")]
-offset_left = -0.5
-offset_right = 0.5
-offset_bottom = 23.0
-scale = Vector2(3, 3)
-wait_time = 20
-metadata/_edit_vertical_guides_ = [40.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2"]
 visible = false
@@ -144,45 +154,10 @@ texture = ExtResource("9_j88sr")
 centered = false
 
 [node name="Debug" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
-offset_right = 190.0
-offset_bottom = 40.0
-
-[node name="调试按钮1" type="Button" parent="Debug/HBoxContainer"]
-layout_mode = 2
-text = "调试按钮1"
-
-[node name="调试：更改作物状态" type="Button" parent="Debug/HBoxContainer"]
-layout_mode = 2
-text = "更改作物状态
-"
-
-[node name="Button" type="Button" parent="Debug/HBoxContainer"]
-layout_mode = 2
-text = "收获
-"
 
 [node name="filed_manager" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("1_6ow38")
-
-[node name="filed_area" type="Control" parent="filed_manager"]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -48.0
-offset_right = 24.0
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(24, 24)
 
 [node name="cursor" type="Sprite2D" parent="."]
 position = Vector2(150, -60)
@@ -201,8 +176,9 @@ texture = ExtResource("14_pikh5")
 [connection signal="updata_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_updata_plant_state"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/top_left_button" to="state_manager" method="_on_top_left_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="filed_manager" method="_on_bottom_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="state_manager" method="_on_cancel_timer_button_pressed"]
+[connection signal="label_time_out" from="state_manager/CanvasLayer2/time_lable" to="state_manager" method="_on_time_lable_label_time_out"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]
-[connection signal="label_time_out" from="state_manager/CanvasLayer2/time_lable" to="state_manager" method="_on_time_lable_label_time_out"]
 [connection signal="harvest_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_harvest_finished"]
 [connection signal="plant_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_plant_finished"]

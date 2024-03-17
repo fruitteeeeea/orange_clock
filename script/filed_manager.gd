@@ -15,8 +15,6 @@ var flowers = []
 
 
 #===block及生成模块===
-#预载filed_area
-@onready var filed_area = $filed_area
 #预载block场景
 var field_block = preload("res://scene/filed_block.tscn")
 #网格尺寸
@@ -54,9 +52,7 @@ func generate_filed_blocks():
 		for j in range(grid_size):
 			# 实例化FieldBlock
 			var field_block = field_block.instantiate()
-			# 正确放置blocks## + Vector2(24, 24) 修正filed_area中clip_contents的偏移
 			var position = Vector2(j - grid_size / 2, i - grid_size / 2) * block_size
-			#var position = Vector2(j - grid_size / 2, i - grid_size / 2) * block_size + Vector2(24, 48)
 			print(position)
 			field_block.position = position
 			# 使用计数器值为方块命名，确保唯一性
@@ -65,7 +61,6 @@ func generate_filed_blocks():
 			block_id += 1 
 			# 添加FieldBlock到filed_manager
 			add_child(field_block)
-			#filed_area.add_child(field_block)
 			blocks.append(field_block) 
 			
 			#制造延迟感
@@ -103,7 +98,6 @@ func do_plant(position):
 	print("当前种植的index是：", current_block_index)
 	var flower = flower.instantiate()
 	add_child(flower)
-	#filed_area.add_child(flower)
 	flower.position = position
 	flower.name = "Flower_" + str(flower_id) 
 	#作物加入数组，方便引用
@@ -220,18 +214,6 @@ func _on_harvest_button_pressed():
 
 
 #===Debug调试===
-func _on_调试按钮1_pressed():
-	do_harvest()
-	pass # Replace with function body.
-
-
-func _on_调试种植_pressed():
-	plant_stuff()
-	pass # Replace with function body.
-
-
-func _on_调试更改作物状态_pressed():
-	change_sprite()
 
 
 
