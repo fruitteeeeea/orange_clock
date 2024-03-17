@@ -1,5 +1,3 @@
 res://scene/field_scene.tscn
 res://test/time_lable.tscn
 res://test/ui.tscn
-res://script/cursor.gd
-res://script/filed_manager.gd

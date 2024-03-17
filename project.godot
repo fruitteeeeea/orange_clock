@@ -19,8 +19,8 @@ config/icon="res://test/app_icon.png"
 
 window/size/viewport_width=390
 window/size/viewport_height=844
-window/size/window_width_override=780
-window/size/window_height_override=1688
+window/size/window_width_override=499
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 
 [rendering]
