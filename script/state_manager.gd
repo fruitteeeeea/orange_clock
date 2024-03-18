@@ -8,6 +8,7 @@ signal pause_timer
 #更新作物状态
 signal updata_plant_state
 
+#每次初始化记得重设pause状态
 var pause: bool = false
 
 #===UI组件=== 
@@ -59,6 +60,7 @@ func _process(delta):
 #注意在这里填写的是执行按钮按下后执行的逻辑
 #初始化
 func Initialize():
+	pause = false
 	topleft_button.hide_top_left_button()
 	topleft_button.show_top_left_button("plant")
 	topleft_button_texture.frame = 0

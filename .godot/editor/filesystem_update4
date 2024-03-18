@@ -1,7 +1,5 @@
 res://scene/field_scene.tscn
-res://test/time_lable.tscn
 res://test/number_changer.tscn
 res://test/number_test.tscn
-res://script/filed_manager.gd
-res://scene/cancel_timer_button.gd
+res://test/time_lable.tscn
 res://script/state_manager.gd

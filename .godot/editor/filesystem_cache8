@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710671852
+::res://::1710775414
 README.md::TextFile::-1::1710671840::0::1::::<><>::
 ::res://assert/::1710671840
 block.png::CompressedTexture2D::8707716119065250181::1710671840::1710671840::1::::<><>::
@@ -11,24 +11,25 @@ orange.png::CompressedTexture2D::4456936149308175486::1710671840::1710671840::1:
 Teemo Basic emote animations sprite sheet.png::CompressedTexture2D::4809795345736677737::1710671840::1710671840::1::::<><>::
 top_left_button.png::CompressedTexture2D::5788728189168306060::1710671840::1710671840::1::::<><>::
 Water.png::CompressedTexture2D::3436225867024061723::1710671840::1710671840::1::::<><>::
-::res://scene/::1710671840
-field_scene.tscn::PackedScene::1754424237175359802::1710671840::0::1::::<><>::res://script/filed_manager.gd<>res://script/state_manager.gd<>res://test/field_scene.gdshader<>res://script/top_left_button.gd<>uid://bgmnqusbnsq33::::res://assert/cursor.png<>uid://wgbnkjv0trj5::::res://test/123.png<>res://script/bottom_button.gd<>res://script/cursor.gd<>res://script/harvest_button.gd<>uid://coqdriybb3213::::res://assert/top_left_button.png<>uid://bj8rxrkwnxaha::::res://test/time_lable.tscn<>uid://dssmubdwges61::::res://test/dock_animation.tscn<>uid://bxulqnyewwby2::::res://test/dock_background7.png<>uid://car5vkm3y1tnt::::res://assert/Teemo Basic emote animations sprite sheet.png<>res://script/Camera2D.gd<>uid://c8ip1xby8l5my::::res://test/box.png<>uid://bo7sexrul1rl8::::res://assert/Water.png<>uid://detslj0spn6x5::::res://test/1234.png
+::res://scene/::1710688838
+cancel_timer_button.gd::GDScript::-1::1710686827::0::1::::<>Button<>::
+field_scene.tscn::PackedScene::1754424237175359802::1710688838::0::1::::<><>::res://script/filed_manager.gd<>res://script/state_manager.gd<>res://test/field_scene.gdshader<>res://script/top_left_button.gd<>uid://bgmnqusbnsq33::::res://assert/cursor.png<>uid://wgbnkjv0trj5::::res://test/123.png<>res://script/bottom_button.gd<>res://script/cursor.gd<>res://script/harvest_button.gd<>res://scene/cancel_timer_button.gd<>uid://coqdriybb3213::::res://assert/top_left_button.png<>uid://bj8rxrkwnxaha::::res://test/time_lable.tscn<>uid://dssmubdwges61::::res://test/dock_animation.tscn<>uid://bxulqnyewwby2::::res://test/dock_background7.png<>uid://car5vkm3y1tnt::::res://assert/Teemo Basic emote animations sprite sheet.png<>res://script/Camera2D.gd<>uid://c8ip1xby8l5my::::res://test/box.png<>uid://bo7sexrul1rl8::::res://assert/Water.png<>uid://detslj0spn6x5::::res://test/1234.png
 filed_block.tscn::PackedScene::7259787699608521412::1710671840::0::1::::<><>::uid://dwcc2u8mv8n62::::res://assert/block.png<>res://script/filedBlock.gd
 flower_test.tscn::PackedScene::8272631413049873192::1710671840::0::1::::<><>::uid://dedt03bxpdkr6::::res://assert/flower.png<>res://script/flower_test.gd
 orange.tscn::PackedScene::526899403554696542::1710671840::0::1::::<><>::uid://b4q8c722k1i3w::::res://assert/orange.png<>res://script/orange_33.gd
-::res://script/::1710671840
+::res://script/::1710688735
 bottom_button.gd::GDScript::-1::1710671840::0::1::::<>Button<>::
 Camera2D.gd::GDScript::-1::1710671840::0::1::::<>Camera2D<>::
 cursor.gd::GDScript::-1::1710671840::0::1::::<>Sprite2D<>::
 filedBlock.gd::GDScript::-1::1710671840::0::1::::<>Sprite2D<>::
-filed_manager.gd::GDScript::-1::1710671840::0::1::::<>Node2D<>::
+filed_manager.gd::GDScript::-1::1710672087::0::1::::<>Node2D<>::
 flower_test.gd::GDScript::-1::1710671840::0::1::::<>Sprite2D<>::
 harvest_button.gd::GDScript::-1::1710671840::0::1::::<>Button<>::
 orange_33.gd::GDScript::-1::1710671840::0::1::::<>Sprite2D<>::
-state_manager.gd::GDScript::-1::1710671840::0::1::::<>Node2D<>::
+state_manager.gd::GDScript::-1::1710688735::0::1::::<>Node2D<>::
 time_lable2.gd::GDScript::-1::1710671840::0::1::::<>Label<>::
 top_left_button.gd::GDScript::-1::1710671840::0::1::::<>Button<>::
-::res://test/::1710671840
+::res://test/::1710688742
 123.png::CompressedTexture2D::1556625298999661468::1710671840::1710671840::1::::<><>::
 1234.png::CompressedTexture2D::7480353664730010624::1710671840::1710671840::1::::<><>::
 app_icon.png::CompressedTexture2D::3038597815789111022::1710671840::1710671840::1::::<><>::
@@ -51,10 +52,10 @@ icon.svg::CompressedTexture2D::5806235819966708038::1710671840::1710671853::1:::
 number_am_BW.png::CompressedTexture2D::7395608803017026694::1710671840::1710671840::1::::<><>::
 number_am_FW.png::CompressedTexture2D::3246621790782282403::1710671840::1710671840::1::::<><>::
 number_changer.gd::GDScript::-1::1710671840::0::1::::<>Node2D<>::
-number_changer.tscn::PackedScene::3880353237746854573::1710671840::0::1::::<><>::res://test/number_changer.gd<>uid://bmixne4h1kg1h::::res://test/number_am_FW.png<>uid://ddmqujr2kpkmo::::res://test/number_am_BW.png
-number_test.tscn::PackedScene::9061787452146667946::1710671840::0::1::::<><>::uid://bvjw36vy7jtkf::::res://test/number_changer.tscn
+number_changer.tscn::PackedScene::3880353237746854573::1710688742::0::1::::<><>::res://test/number_changer.gd<>uid://bmixne4h1kg1h::::res://test/number_am_FW.png<>uid://ddmqujr2kpkmo::::res://test/number_am_BW.png
+number_test.tscn::PackedScene::9061787452146667946::1710688742::0::1::::<><>::uid://bvjw36vy7jtkf::::res://test/number_changer.tscn
 status.tscn::PackedScene::1924827646916606571::1710671840::0::1::::<><>::
-time_lable.tscn::PackedScene::3087318913819060150::1710671840::0::1::::<><>::res://script/time_lable2.gd<>uid://bvjw36vy7jtkf::::res://test/number_changer.tscn
+time_lable.tscn::PackedScene::3087318913819060150::1710688742::0::1::::<><>::res://script/time_lable2.gd<>uid://bvjw36vy7jtkf::::res://test/number_changer.tscn
 top_left_button.png::CompressedTexture2D::8174361675197557747::1710671840::1710671840::1::::<><>::
 top_left_button_animation.png::CompressedTexture2D::7795296750753938872::1710671840::1710671840::1::::<><>::
 ui.tscn::PackedScene::4928794784240313517::1710671840::0::1::::<><>::res://test/ui_manager.gd<>uid://wgbnkjv0trj5::::res://test/123.png<>uid://dopyspeqbln36::::res://test/top_left_button.png<>uid://djcdns0x4y65q::::res://test/top_left_button_animation.png<>uid://dw7v1xus43ltf::::res://test/chicken.png<>uid://c8ip1xby8l5my::::res://test/box.png<>uid://b3n42nn0abfh::::res://test/dock.tscn
