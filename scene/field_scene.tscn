@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://y84d1fkp4cry"]
+[gd_scene load_steps=36 format=3 uid="uid://y84d1fkp4cry"]
 
 [ext_resource type="Script" path="res://script/filed_manager.gd" id="1_6ow38"]
 [ext_resource type="Script" path="res://script/state_manager.gd" id="1_7df2t"]
@@ -18,11 +18,52 @@
 [ext_resource type="Script" path="res://script/Camera2D.gd" id="9_hj7l2"]
 [ext_resource type="Texture2D" uid="uid://c8ip1xby8l5my" path="res://test/box.png" id="9_j88sr"]
 [ext_resource type="Texture2D" uid="uid://bo7sexrul1rl8" path="res://assert/Water.png" id="10_16vgn"]
+[ext_resource type="Texture2D" uid="uid://c6ys854exs4yq" path="res://test/cancel_timer.png" id="11_7pt45"]
+[ext_resource type="Texture2D" uid="uid://b51sotpby8rnc" path="res://test/harvest_box_out_line.png" id="13_ixhkl"]
+[ext_resource type="Texture2D" uid="uid://cwd3o7fbasocx" path="res://test/harvest_anima.png" id="14_5l2du"]
 [ext_resource type="Texture2D" uid="uid://detslj0spn6x5" path="res://test/1234.png" id="14_pikh5"]
+[ext_resource type="Script" path="res://scene/settalment_box.gd" id="16_1x6et"]
+[ext_resource type="Texture2D" uid="uid://ccs1q4y6rghpm" path="res://test/settalment_pannel.png" id="16_vuc7v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ek8lc"]
 shader = ExtResource("1_jikfa")
-shader_parameter/speed = 0.2
+shader_parameter/speed = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gxim"]
+atlas = ExtResource("14_5l2du")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mph6p"]
+atlas = ExtResource("14_5l2du")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxa5n"]
+atlas = ExtResource("14_5l2du")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys2yp"]
+atlas = ExtResource("14_5l2du")
+region = Rect2(96, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfi1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gxim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mph6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxa5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys2yp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44u2k"]
 atlas = ExtResource("8_400w7")
@@ -62,12 +103,12 @@ animations = [{
 
 [node name="Field_Scene" type="Node2D"]
 
-[node name="black_ground" type="Node2D" parent="."]
+[node name="black_ground_water" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="black_ground"]
+[node name="TextureRect" type="TextureRect" parent="black_ground_water"]
 material = SubResource("ShaderMaterial_ek8lc")
 offset_left = -128.0
-offset_top = -192.0
+offset_top = -256.0
 offset_right = 128.0
 offset_bottom = 240.0
 texture = ExtResource("10_16vgn")
@@ -78,6 +119,7 @@ texture = ExtResource("3_3qlga")
 
 [node name="state_manager" type="Node2D" parent="."]
 script = ExtResource("1_7df2t")
+camera_zoom_out_scale = 2.5
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="state_manager"]
 
@@ -113,15 +155,24 @@ texture = ExtResource("7_qbutg")
 
 [node name="AnimatedSprite2D" parent="state_manager/CanvasLayer2/bottom_button" instance=ExtResource("7_ex8uh")]
 position = Vector2(40, 72)
+animation = &"pressed"
+frame = 0
+frame_progress = 0.0
 
 [node name="cancel_timer_button" type="Button" parent="state_manager/CanvasLayer2"]
-offset_left = 400.0
-offset_top = 625.0
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 360.0
+offset_top = 640.0
 offset_right = 520.0
 offset_bottom = 760.0
 text = "Cancle timer
 "
 script = ExtResource("5_8mr6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/cancel_timer_button"]
+position = Vector2(80, 64)
+scale = Vector2(3, 3)
+texture = ExtResource("11_7pt45")
 
 [node name="time_lable" parent="state_manager/CanvasLayer2" instance=ExtResource("7_88jv1")]
 offset_left = -0.5
@@ -132,12 +183,46 @@ wait_time = 3
 metadata/_edit_vertical_guides_ = [40.0]
 
 [node name="harvest_button" type="Button" parent="state_manager/CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 144.0
-offset_top = 896.0
-offset_right = 248.0
-offset_bottom = 976.0
+offset_top = 900.0
+offset_right = 224.0
+offset_bottom = 1024.0
 text = "收获"
 script = ExtResource("4_gunxn")
+
+[node name="harvest_box_outline" type="Sprite2D" parent="state_manager/CanvasLayer2/harvest_button"]
+position = Vector2(-23, 16)
+scale = Vector2(3, 3)
+texture = ExtResource("13_ixhkl")
+centered = false
+
+[node name="harvest_button" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2/harvest_button"]
+position = Vector2(40, 64)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gfi1v")
+frame = 3
+frame_progress = 1.0
+
+[node name="settalment_box" type="PanelContainer" parent="state_manager/CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 221.0
+offset_top = -142.0
+offset_right = 541.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_1x6et")
+
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/settalment_box"]
+scale = Vector2(3, 3)
+texture = ExtResource("16_vuc7v")
+centered = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2"]
 visible = false
@@ -180,6 +265,7 @@ texture = ExtResource("14_pikh5")
 [connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="filed_manager" method="_on_cancel_timer_button_pressed"]
 [connection signal="label_time_out" from="state_manager/CanvasLayer2/time_lable" to="state_manager" method="_on_time_lable_label_time_out"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager/CanvasLayer2/harvest_button" method="_on_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]
 [connection signal="harvest_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_harvest_finished"]
 [connection signal="plant_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_plant_finished"]

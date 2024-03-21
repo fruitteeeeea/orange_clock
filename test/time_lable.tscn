@@ -1,7 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj8rxrkwnxaha"]
+[gd_scene load_steps=10 format=3 uid="uid://bj8rxrkwnxaha"]
 
 [ext_resource type="Script" path="res://script/time_lable2.gd" id="1_1ioa0"]
 [ext_resource type="PackedScene" uid="uid://bvjw36vy7jtkf" path="res://test/number_changer.tscn" id="2_lu6kg"]
+[ext_resource type="Texture2D" uid="uid://r2rxam1jqfcc" path="res://test/timer_colon-Sheet.png" id="3_7sqd0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxtuh"]
+atlas = ExtResource("3_7sqd0")
+region = Rect2(0, 0, 6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rlur"]
+atlas = ExtResource("3_7sqd0")
+region = Rect2(6, 0, 6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x788v"]
+atlas = ExtResource("3_7sqd0")
+region = Rect2(12, 0, 6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6f6c"]
+atlas = ExtResource("3_7sqd0")
+region = Rect2(18, 0, 6, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk2fo"]
+atlas = ExtResource("3_7sqd0")
+region = Rect2(24, 0, 6, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_utps8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxtuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rlur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x788v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6f6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk2fo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="time_lable" type="Label" node_paths=PackedStringArray("timer")]
 anchors_preset = 5
@@ -27,6 +71,13 @@ position = Vector2(-40, 2.08165e-12)
 
 [node name="minue_one" parent="flip_clock" instance=ExtResource("2_lu6kg")]
 position = Vector2(-15, 2.08165e-12)
+
+[node name="timer_colon" type="AnimatedSprite2D" parent="flip_clock/minue_one"]
+visible = false
+position = Vector2(15, 1)
+sprite_frames = SubResource("SpriteFrames_utps8")
+autoplay = "default"
+frame_progress = 0.0270968
 
 [node name="second_ten" parent="flip_clock" instance=ExtResource("2_lu6kg")]
 position = Vector2(15, 2.08165e-12)

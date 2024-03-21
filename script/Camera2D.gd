@@ -1,10 +1,7 @@
 extends Camera2D
 
-@export var initial_zoom = Vector2(3, 3)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.zoom = initial_zoom
 	pass # Replace with function body.
 
 

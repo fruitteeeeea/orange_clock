@@ -193,6 +193,7 @@ scale = Vector2(1.2896, 1.05217)
 zoom = Vector2(5, 5)
 
 [node name="Debug" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
 offset_right = 80.0
@@ -203,5 +204,3 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 text = "收获 "
-
-[connection signal="pressed" from="Debug/HBoxContainer/调试_收获" to="." method="_on_调试_收获_pressed"]

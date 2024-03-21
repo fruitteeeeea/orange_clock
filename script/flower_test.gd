@@ -104,6 +104,4 @@ func _input(event):
 			print("我点！")
 
 
-func _on_调试_收获_pressed():
-	DESTROY()
-	pass # Replace with function body.
+

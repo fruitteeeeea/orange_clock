@@ -33,7 +33,7 @@ func _input(event):
 func change_flip_clock_number(target_number):
 	#直接执行数字变更动画
 	play_animation_for_number(target_number)
-	
+
 
 #从current_number至target_number
 func update_animation():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=146 format=3 uid="uid://bvjw36vy7jtkf"]
+[gd_scene load_steps=147 format=3 uid="uid://bvjw36vy7jtkf"]
 
 [ext_resource type="Script" path="res://test/number_changer.gd" id="1_4fhap"]
 [ext_resource type="Texture2D" uid="uid://bmixne4h1kg1h" path="res://test/number_am_FW.png" id="2_25lef"]
+[ext_resource type="Texture2D" uid="uid://52gygrhclw3q" path="res://test/time_top.png" id="2_vyrjl"]
 [ext_resource type="Texture2D" uid="uid://ddmqujr2kpkmo" path="res://test/number_am_BW.png" id="3_lwiwv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rg8bf"]
@@ -1092,6 +1093,10 @@ animations = [{
 
 [node name="number_changer" type="Node2D"]
 script = ExtResource("1_4fhap")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+texture = ExtResource("2_vyrjl")
 
 [node name="numbuer_animation_backward" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2gv0m")

@@ -20,11 +20,13 @@ var pause: bool = false
 @onready var cancel_timer_button = $CanvasLayer2/cancel_timer_button
 @onready var harvest_button = $CanvasLayer2/harvest_button
 
+@onready var settalment_box = $CanvasLayer2/settalment_box
+
 #===相机===
 @onready var camera = $"../Camera2D"
 
 @export var camera_zoom_in_scale:int = 5
-@export var camera_zoom_out_scale:int = 2
+@export var camera_zoom_out_scale:float = 2
 
 
 #分配初始状态
@@ -63,6 +65,7 @@ func _process(delta):
 #初始化
 func Initialize():
 	pause = false
+	settalment_box.hide_settalment_box()
 	topleft_button.hide_top_left_button()
 	topleft_button.show_top_left_button("plant")
 	topleft_button_texture.frame = 0
@@ -93,6 +96,8 @@ func WattingCountDown():
 	time_lable.show_timer_lable()
 	#同时启动计时
 	time_lable.timer.start()
+	#强制更新一下暂停状态
+	time_lable.timer.paused = false
 	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))
 	pass
 	
@@ -117,7 +122,7 @@ func CancelTimer():
 func SettalmentFinished():
 	topleft_button_texture.frame = 4
 	topleft_button.show_top_left_button("finished")
-	
+	settalment_box.show_settalment_box()
 	pass
 
 #执行当前逻辑

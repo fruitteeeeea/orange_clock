@@ -2,7 +2,12 @@ res://scene/field_scene.tscn
 res://test/number_changer.tscn
 res://test/number_test.tscn
 res://test/time_lable.tscn
-res://Timer.gd
+res://scene/flower_test.tscn
+res://script/flower_test.gd
 res://script/time_lable2.gd
-res://test/timer.12345tscn.tscn
 res://script/state_manager.gd
+res://test/number_changer.gd
+res://script/Camera2D.gd
+res://test/timer.12345tscn.tscn
+res://script/harvest_button.gd
+res://scene/settalment_box.gd
