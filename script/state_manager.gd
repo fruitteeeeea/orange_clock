@@ -42,6 +42,8 @@ enum State{
 	COUNTDOWN,
 	#倒计时结束，等待结算
 	SETTALMENT,
+	#取消倒计时，直接初始化
+	CANCEL,
 	#结算完成，等待开始
 	FINAL
 }
@@ -89,6 +91,8 @@ func WattingCountDown():
 	topleft_button.show_top_left_button_2("pause")
 	topleft_button_texture.frame = 2
 	time_lable.show_timer_lable()
+	#同时启动计时
+	time_lable.timer.start()
 	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))
 	pass
 	
@@ -96,17 +100,24 @@ func WattingCountDown():
 func EnterSettalment():
 	topleft_button.hide_top_left_button()
 	time_lable.hide_timer_lable()
-	camera.do_zoom(Vector2(5, 5))
+	camera.do_zoom(Vector2(camera_zoom_in_scale, camera_zoom_in_scale))
 	#更新作物状态
 	emit_signal("updata_plant_state")
 	#显示收获按钮
 	harvest_button.show_harvest_button()
 	pass
 
+#提前结束倒计时 跳过当前阶段
+func CancelTimer():
+	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))
+	Initialize()
+	pass
+
 #结算完成 等待初始化
 func SettalmentFinished():
 	topleft_button_texture.frame = 4
 	topleft_button.show_top_left_button("finished")
+	
 	pass
 
 #执行当前逻辑
@@ -127,6 +138,9 @@ func execute_current_state_logic():
 		State.SETTALMENT:
 			SettalmentFinished()
 			current_state = State.FINAL
+		State.CANCEL:
+			CancelTimer()
+			current_state = State.InitialState
 		State.FINAL:
 			Initialize()
 			current_state = State.InitialState
@@ -169,26 +183,23 @@ func pause_and_continue():
 		#切换一下当前的暂停状态
 		pause = not pause
 
-func cancel_timer():
-	if pause == true:
-		emit_signal("pause_timer")
-		execute_current_state_logic()
-		
-
 
 #接受来自filed_mananger的种植完毕信号
 func _on_filed_manager_plant_finished():
 	execute_current_state_logic()
+	print("执行当前逻辑。原因：plant_finished")
 
 
 #倒计时结束后推进状态
 func _on_time_lable_label_time_out():
 	execute_current_state_logic()
+	print("执行当前逻辑。原因：label_time_out")
 
 
 
 func _on_filed_manager_harvest_finished():
 	execute_current_state_logic()
+	print("执行当前逻辑。原因：harvest_finished")
 
 
 func _on_harvest_button_pressed():
@@ -196,6 +207,11 @@ func _on_harvest_button_pressed():
 
 
 func _on_cancel_timer_button_pressed():
-	cancel_timer()
+	time_lable.hide_timer_lable()
+	topleft_button.hide_top_left_button()
+	#这个时候必须正式停止时间 不然会重新激活 同时更改暂停状态
+	time_lable.stop_timer_and_not_pause()
+	
+	current_state = State.CANCEL
 	cancel_timer_button.hide_cancel_timer_button()
 	pass # Replace with function body.

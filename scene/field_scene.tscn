@@ -168,7 +168,7 @@ script = ExtResource("4_2i84w")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("9_hj7l2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="filed_half" type="Sprite2D" parent="."]
 texture = ExtResource("14_pikh5")
 
 [connection signal="enter_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_enter_plant_state"]
@@ -177,6 +177,7 @@ texture = ExtResource("14_pikh5")
 [connection signal="pressed" from="state_manager/CanvasLayer2/top_left_button" to="state_manager" method="_on_top_left_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="filed_manager" method="_on_bottom_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="state_manager" method="_on_cancel_timer_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="filed_manager" method="_on_cancel_timer_button_pressed"]
 [connection signal="label_time_out" from="state_manager/CanvasLayer2/time_lable" to="state_manager" method="_on_time_lable_label_time_out"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]

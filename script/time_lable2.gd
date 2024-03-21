@@ -33,7 +33,7 @@ var current_mt:int = 0
 var current_mo:int = 0
 var current_st:int = 0
 var current_so:int = 0
-
+	
 func _ready():
 	#设定timer为one_shot 否则他会自动重启
 	timer.one_shot = true
@@ -83,9 +83,6 @@ func _time_left():
 	return[minute, second]
 
 func _process(delta):
-	#运行时不间断获取计时器余下时间信息
-	#self.text = "%02d:%02d" % _time_left()
-	#update_timer_number()
 	pass
 
 #根据运行时间来获取 不要一直获取
@@ -102,8 +99,6 @@ func show_timer_lable():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "position", position_show, .4)
-	#同时启动计时
-	timer.start()
 
 func hide_timer_lable():
 	var tween = create_tween()
@@ -125,6 +120,10 @@ func pause_timer():
 	else:
 		timer.paused = false
 		timer_pause = not timer_pause
+
+func stop_timer_and_not_pause():
+	timer.stop()
+	timer_pause = false
 
 
 #===计时器完成===

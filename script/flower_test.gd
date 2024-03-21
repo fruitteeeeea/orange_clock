@@ -85,6 +85,12 @@ func HARVEST():
 	fruit.queue_free()
 	destroy_flower()
 
+func DESTROY():
+	#播放自身动画
+	animation_player.play("destory") 
+	await get_tree().create_timer(1).timeout
+	destroy_flower()
+
 #隐藏花朵
 func destroy_flower():
 		self.visible = false
@@ -99,7 +105,5 @@ func _input(event):
 
 
 func _on_调试_收获_pressed():
-	HARVEST()
-	await get_tree().create_timer(2).timeout
-	destroy_flower()
+	DESTROY()
 	pass # Replace with function body.

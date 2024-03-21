@@ -76,9 +76,7 @@ func enter_plant_state():
 	cursor.move_cursor(blocks[current_block_index].position)
 	#当前blcok聚焦
 	blocks[current_block_index].focus()
-	##显示按钮
-	#plant_button.position = Vector2(144, 688)
-	#开启plant
+	#切换种植状态
 	plant_state = true
 	pass
 
@@ -92,17 +90,6 @@ func fouce_update_current_block_index():
 	current_block_index = 0
 
 #===种植模块===
-
-#生成作物
-func do_plant(position):
-	print("当前种植的index是：", current_block_index)
-	var flower = flower.instantiate()
-	add_child(flower)
-	flower.position = position
-	flower.name = "Flower_" + str(flower_id) 
-	#作物加入数组，方便引用
-	flowers.append(flower)
-
 func plant_stuff():
 	#确定种植条件：场景内存在blcok和种植状态为开启
 	if blocks.size() > 0 and plant_state == true:
@@ -168,12 +155,17 @@ func move_cursor_and_plant():
 		plant_state = false
 	pass
 
+#生成作物
+func do_plant(position):
+	print("当前种植的index是：", current_block_index)
+	var flower = flower.instantiate()
+	add_child(flower)
+	flower.position = position
+	flower.name = "Flower_" + str(flower_id) 
+	#作物加入数组，方便引用
+	flowers.append(flower)
 
 ##===这里是收获模块===
-#func move_cursor_and_harvest():
-	#var the_last_flower: int = flowers.size() - 1
-	#pass
-
 #在这里面更改作物状态
 func change_sprite():
 	for flower in flowers:
@@ -183,12 +175,24 @@ func change_sprite():
 func do_harvest():
 	for flower in flowers:
 		#if flower != null:
-			## 对每个花朵进行操作，这里只是打印出花朵的位置，你可以根据需要进行具体操作
-			#print("Flower Position:", flower.position)
 			flower.HARVEST()
 			print("收获一个作物")
 			await get_tree().create_timer(0.1).timeout
 	
+	#清除flowrs数组
+	flowers.clear()
+	emit_signal("harvest_finished")
+	print("harvest finished")
+
+##执行取消当前种植计划
+func do_destroy():
+	for flower in flowers:
+		#if flower != null:
+			flower.DESTROY()
+			print("收摧毁一个作物")
+			await get_tree().create_timer(0.1).timeout
+			
+		#清除flowrs数组
 	flowers.clear()
 	emit_signal("harvest_finished")
 	print("harvest finished")
@@ -208,12 +212,18 @@ func _on_bottom_button_pressed():
 func _on_state_manager_updata_plant_state():
 	change_sprite()
 
+#收获作物
 func _on_harvest_button_pressed():
 	do_harvest()
 
-
+#摧毁作物
+func _on_cancel_timer_button_pressed():
+	do_destroy()
 
 #===Debug调试===
+
+
+
 
 
 

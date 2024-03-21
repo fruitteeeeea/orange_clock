@@ -2,4 +2,7 @@ res://scene/field_scene.tscn
 res://test/number_changer.tscn
 res://test/number_test.tscn
 res://test/time_lable.tscn
+res://Timer.gd
+res://script/time_lable2.gd
+res://test/timer.12345tscn.tscn
 res://script/state_manager.gd
