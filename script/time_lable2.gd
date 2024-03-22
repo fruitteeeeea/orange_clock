@@ -23,6 +23,9 @@ var timer_pause:bool = false
 
 var timer_numbers = [0, 0, 0, 0]
 
+#定义计时器的时间wait_time
+#var recive_wait_time = timer.wait
+
 #定义last_mt
 var last_mt:int = 0
 var last_mo:int = 0
@@ -130,3 +133,12 @@ func stop_timer_and_not_pause():
 #计时器完成时向state_manager发送信号
 func _on_timer_timeout():
 	emit_signal("label_time_out")
+
+
+func _on_timer_selceter_select_time(selected_time):
+	var SelectedWaitTime = selected_time
+	print(SelectedWaitTime)
+	timer.wait_time = SelectedWaitTime
+	print(timer.wait_time)
+	
+	pass # Replace with function body.

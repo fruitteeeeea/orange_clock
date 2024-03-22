@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://y84d1fkp4cry"]
+[gd_scene load_steps=44 format=3 uid="uid://y84d1fkp4cry"]
 
 [ext_resource type="Script" path="res://script/filed_manager.gd" id="1_6ow38"]
 [ext_resource type="Script" path="res://script/state_manager.gd" id="1_7df2t"]
@@ -24,6 +24,14 @@
 [ext_resource type="Texture2D" uid="uid://detslj0spn6x5" path="res://test/1234.png" id="14_pikh5"]
 [ext_resource type="Script" path="res://scene/settalment_box.gd" id="16_1x6et"]
 [ext_resource type="Texture2D" uid="uid://ccs1q4y6rghpm" path="res://test/settalment_pannel.png" id="16_vuc7v"]
+[ext_resource type="Script" path="res://scene/emoji.gd" id="19_vg7v8"]
+[ext_resource type="Texture2D" uid="uid://bgfg2cr76482j" path="res://test/emo_box.png" id="19_w5igd"]
+[ext_resource type="Texture2D" uid="uid://52gygrhclw3q" path="res://test/time_top.png" id="20_svcwf"]
+[ext_resource type="Script" path="res://scene/timer_selcet.gd" id="22_y6tqa"]
+[ext_resource type="Texture2D" uid="uid://bp3b18iewhg3v" path="res://test/timer_select.png" id="23_vayfk"]
+[ext_resource type="Texture2D" uid="uid://bfo52m1qya5fm" path="res://test/select_timer_lable.png" id="24_0h6yf"]
+[ext_resource type="Texture2D" uid="uid://dl1pt1jbomeu8" path="res://test/select your timer.png" id="24_hkyps"]
+[ext_resource type="Script" path="res://scene/select_timer_pannel.gd" id="25_q83ki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ek8lc"]
 shader = ExtResource("1_jikfa")
@@ -233,12 +241,120 @@ animation = &"happy"
 autoplay = "happy"
 frame_progress = 0.121126
 
+[node name="emoji" type="Control" parent="state_manager/CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(3, 3)
+script = ExtResource("19_vg7v8")
+
+[node name="emo_box" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji"]
+position = Vector2(100, 55)
+texture = ExtResource("19_w5igd")
+
+[node name="line" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji/emo_box"]
+position = Vector2(2.08165e-12, -30)
+scale = Vector2(1, 3.36111)
+texture = ExtResource("20_svcwf")
+
+[node name="emo_box2" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji"]
+position = Vector2(100, 285)
+texture = ExtResource("19_w5igd")
+
+[node name="line" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji/emo_box2"]
+position = Vector2(2.08165e-12, 30)
+scale = Vector2(1, 3.36111)
+texture = ExtResource("20_svcwf")
+
+[node name="timer_selceter" type="Control" parent="state_manager/CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -692.0
+offset_right = -230.0
+offset_bottom = -468.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("22_y6tqa")
+
+[node name="select_timer_button" type="VBoxContainer" parent="state_manager/CanvasLayer2/timer_selceter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="twenty_four_min" type="Button" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button/twenty_four_min"]
+scale = Vector2(3, 3)
+texture = ExtResource("23_vayfk")
+centered = false
+hframes = 3
+
+[node name="fourty_five_min" type="Button" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button/fourty_five_min"]
+scale = Vector2(3, 3)
+texture = ExtResource("23_vayfk")
+centered = false
+hframes = 3
+frame = 1
+
+[node name="test" type="Button" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button/test"]
+scale = Vector2(3, 3)
+texture = ExtResource("23_vayfk")
+centered = false
+hframes = 3
+frame = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button"]
+
+[node name="select_timer_banner" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter"]
+position = Vector2(195, 560)
+scale = Vector2(3, 3)
+texture = ExtResource("24_hkyps")
+
+[node name="select_timer_pannel" type="Sprite2D" parent="state_manager/CanvasLayer2"]
+position = Vector2(-200, 712)
+scale = Vector2(3, 3)
+texture = ExtResource("24_0h6yf")
+vframes = 3
+script = ExtResource("25_q83ki")
+
 [node name="Box" type="Sprite2D" parent="state_manager/CanvasLayer2"]
 scale = Vector2(3, 3)
 texture = ExtResource("9_j88sr")
 centered = false
 
+[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2"]
+
 [node name="Debug" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="Debug"]
+offset_right = 168.0
+offset_bottom = 112.0
+text = "显示"
+
+[node name="Button2" type="Button" parent="Debug"]
+offset_left = 176.0
+offset_right = 344.0
+offset_bottom = 112.0
+text = "隐藏"
 
 [node name="filed_manager" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -267,5 +383,10 @@ texture = ExtResource("14_pikh5")
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager/CanvasLayer2/harvest_button" method="_on_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]
+[connection signal="select_time" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager/CanvasLayer2/time_lable" method="_on_timer_selceter_select_time"]
+[connection signal="select_time_finished" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_timer_selceter_select_time_finished"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/twenty_four_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_twenty_four_min_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/fourty_five_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_fourty_five_min_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/test" to="state_manager/CanvasLayer2/timer_selceter" method="_on_test_pressed"]
 [connection signal="harvest_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_harvest_finished"]
 [connection signal="plant_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_plant_finished"]

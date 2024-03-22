@@ -21,6 +21,9 @@ var pause: bool = false
 @onready var harvest_button = $CanvasLayer2/harvest_button
 
 @onready var settalment_box = $CanvasLayer2/settalment_box
+@onready var emoji = $CanvasLayer2/emoji
+@onready var timer_selecter = $CanvasLayer2/timer_selceter
+@onready var select_timer_pannel = $CanvasLayer2/select_timer_pannel
 
 #===相机===
 @onready var camera = $"../Camera2D"
@@ -38,7 +41,9 @@ enum State{
 	InitialState,
 	#点击PLANT后，进入种植阶段
 	PLANNING,
-	#种植完毕后，等待开始
+	#种植完毕后，选择时间
+	SELECTTIMER,
+	#选择时间完毕后，等待开始
 	START,
 	#开始计时
 	COUNTDOWN,
@@ -71,6 +76,10 @@ func Initialize():
 	topleft_button_texture.frame = 0
 	time_lable.hide_timer_lable()
 	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))
+	
+	#隐藏所有emoji
+	emoji.hide_emo_box()
+	emoji.hide_button_emo_box()
 	pass
 	
 #进入种植阶段
@@ -79,18 +88,27 @@ func EnterPlanningState():
 	emit_signal("enter_plant_state")
 	bottom_button.show_bottom_button()
 	camera.do_zoom(Vector2(camera_zoom_in_scale, camera_zoom_in_scale))
+	emoji.show_emo_box()
 	pass
+
+#选择计时器
+func SelectTimer():
+	timer_selecter.show_timer_selecter()
+	bottom_button.hide_bottom_button()
 
 #等待倒计时开始
 func WaittingToStart():
+	select_timer_pannel.show_select_timer_pannel()
+	timer_selecter.hide_timer_selecter()
 	topleft_button.show_top_left_button("start")
 	topleft_button_texture.frame = 1
-	bottom_button.hide_bottom_button()
 	pass
 
 #等待倒计时结束
 func WattingCountDown():
+	select_timer_pannel.hide_select_timer_pannel()
 	topleft_button.hide_top_left_button()
+	timer_selecter.hide_timer_selecter()
 	topleft_button.show_top_left_button_2("pause")
 	topleft_button_texture.frame = 2
 	time_lable.show_timer_lable()
@@ -99,6 +117,11 @@ func WattingCountDown():
 	#强制更新一下暂停状态
 	time_lable.timer.paused = false
 	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))
+	
+	#将表情包转移到下方
+	emoji.hide_emo_box()
+	await get_tree().create_timer(.4).timeout
+	emoji.show_button_emo_box()
 	pass
 	
 #倒计时完成 进入结算
@@ -110,6 +133,9 @@ func EnterSettalment():
 	emit_signal("updata_plant_state")
 	#显示收获按钮
 	harvest_button.show_harvest_button()
+	emoji.hide_button_emo_box()
+	await get_tree().create_timer(.4).timeout
+	emoji.show_emo_box()
 	pass
 
 #提前结束倒计时 跳过当前阶段
@@ -123,6 +149,7 @@ func SettalmentFinished():
 	topleft_button_texture.frame = 4
 	topleft_button.show_top_left_button("finished")
 	settalment_box.show_settalment_box()
+	emoji.hide_emo_box()
 	pass
 
 #执行当前逻辑
@@ -132,6 +159,9 @@ func execute_current_state_logic():
 			EnterPlanningState()
 			current_state = State.PLANNING
 		State.PLANNING:
+			SelectTimer()
+			current_state = State.SELECTTIMER
+		State.SELECTTIMER:
 			WaittingToStart()
 			current_state = State.START
 		State.START:
@@ -173,6 +203,8 @@ func pause_and_continue():
 		
 		#弹出取消按钮
 		cancel_timer_button.show_cancel_timer_button()
+		#隐藏底部emoji
+		emoji.hide_button_emo_box()
 		
 		#切换一下当前的暂停状态
 		pause = not pause
@@ -184,6 +216,8 @@ func pause_and_continue():
 		
 		#隐藏取消按钮
 		cancel_timer_button.hide_cancel_timer_button()
+		#显示底部emoji
+		emoji.show_button_emo_box()
 		
 		#切换一下当前的暂停状态
 		pause = not pause
@@ -219,4 +253,9 @@ func _on_cancel_timer_button_pressed():
 	
 	current_state = State.CANCEL
 	cancel_timer_button.hide_cancel_timer_button()
+	pass # Replace with function body.
+
+#选择完计时器后 推进下一步
+func _on_timer_selceter_select_time_finished():
+	execute_current_state_logic()
 	pass # Replace with function body.

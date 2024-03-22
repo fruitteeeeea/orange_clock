@@ -133,6 +133,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, -0.20944, 0.20944, -0.0872665, 3.48787e-16]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.0717937, 0.0717937),
+"update": 0,
+"values": [Vector2(2.08165e-12, -22), Vector2(2.08165e-12, -16)]
+}
 
 [sub_resource type="Animation" id="Animation_dvw80"]
 resource_name = "destory"
@@ -175,7 +187,7 @@ _data = {
 position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("1_yp538")
 offset = Vector2(2.08165e-12, -16)
-hframes = 3
+hframes = 9
 script = ExtResource("2_v8hee")
 
 [node name="box_position" type="Marker2D" parent="."]

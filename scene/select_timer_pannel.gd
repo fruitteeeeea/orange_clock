@@ -1,28 +1,25 @@
 extends Sprite2D
 
-@export var initial_position: Vector2 = Vector2(150, -60)
+@export var position_show = Vector2(152, 712)
+@export var position_hide = Vector2(-200, 712)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.position = initial_position
+	self.position = position_hide
 	pass # Replace with function body.
 
-func press_cursor():
+func show_select_timer_pannel():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(self, "offset", Vector2(0, -25), .1)
-	tween.set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(self, "offset", Vector2(0, -30), .1)
+	tween.tween_property(self, "position", position_show, .4)
 
 
-func move_cursor(position):
-	press_cursor()
+func hide_select_timer_pannel():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(self, "position", position, .1)
-	await tween.finished
+	tween.tween_property(self, "position", position_hide, .4)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

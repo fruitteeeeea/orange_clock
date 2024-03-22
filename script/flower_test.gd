@@ -57,11 +57,15 @@ func flower_bounce():
 #更改帧
 func change_frame():
 	#这里想要获取总帧数 但是不知道为啥没有成功
-	if self.frame >= 2:
-		self.frame = 0
-	else:
-		self.frame += 1
-
+	#if self.frame >= 2:
+		#self.frame = 0
+	#else:
+		#self.frame += 1
+	var frames = 9
+	var random_frame = randi_range(1, frames - 1)
+	self.frame = random_frame
+	
+	
 #作物成熟之后 更改帧数
 func MATURE():
 	var delay = randf_range(0.1, 1)

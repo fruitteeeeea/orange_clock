@@ -1,7 +1,12 @@
 Sprite2D
+Button
+VBoxContainer
+HBoxContainer
+MarginContainer
+Control
+Node2D
 PanelContainer
 AnimatedSprite2D
-Button
 Timer
 Camera2D
 CanvasLayer
