@@ -1,12 +1,12 @@
+AnimatedSprite2D
+Control
 Sprite2D
 Button
 VBoxContainer
 HBoxContainer
 MarginContainer
-Control
 Node2D
 PanelContainer
-AnimatedSprite2D
 Timer
 Camera2D
 CanvasLayer
