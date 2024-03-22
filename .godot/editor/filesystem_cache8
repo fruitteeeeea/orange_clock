@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711033993
-export_presets.cfg::TextFile::-1::1711033629::0::1::::<><>::
+::res://::1711102993
+export_presets.cfg::TextFile::-1::1711094426::0::1::::<><>::
 README.md::TextFile::-1::1710671840::0::1::::<><>::
 ::res://assert/::1711048156
 block.png::CompressedTexture2D::8707716119065250181::1710671840::1710671840::1::::<><>::
@@ -12,16 +12,16 @@ orange.png::CompressedTexture2D::4456936149308175486::1710671840::1710671840::1:
 Teemo Basic emote animations sprite sheet.png::CompressedTexture2D::4809795345736677737::1710671840::1710671840::1::::<><>::
 top_left_button.png::CompressedTexture2D::5788728189168306060::1710671840::1710671840::1::::<><>::
 Water.png::CompressedTexture2D::3436225867024061723::1710671840::1710671840::1::::<><>::
-::res://scene/::1711093894
+::res://scene/::1711094547
 cancel_timer_button.gd::GDScript::-1::1710686827::0::1::::<>Button<>::
-field_scene.tscn::PackedScene::1754424237175359802::1711093894::0::1::::<><>::res://script/filed_manager.gd<>res://script/state_manager.gd<>res://test/field_scene.gdshader<>res://script/top_left_button.gd<>uid://bgmnqusbnsq33::::res://assert/cursor.png<>uid://wgbnkjv0trj5::::res://test/123.png<>res://script/bottom_button.gd<>res://script/cursor.gd<>res://script/harvest_button.gd<>res://scene/cancel_timer_button.gd<>uid://coqdriybb3213::::res://assert/top_left_button.png<>uid://bj8rxrkwnxaha::::res://test/time_lable.tscn<>uid://dssmubdwges61::::res://test/dock_animation.tscn<>uid://bxulqnyewwby2::::res://test/dock_background7.png<>uid://car5vkm3y1tnt::::res://assert/Teemo Basic emote animations sprite sheet.png<>res://script/Camera2D.gd<>uid://c8ip1xby8l5my::::res://test/box.png<>uid://bo7sexrul1rl8::::res://assert/Water.png<>uid://c6ys854exs4yq::::res://test/cancel_timer.png<>uid://b51sotpby8rnc::::res://test/harvest_box_out_line.png<>uid://cwd3o7fbasocx::::res://test/harvest_anima.png<>uid://detslj0spn6x5::::res://test/1234.png<>res://scene/settalment_box.gd<>uid://ccs1q4y6rghpm::::res://test/settalment_pannel.png<>res://scene/emoji.gd<>uid://bgfg2cr76482j::::res://test/emo_box.png<>uid://52gygrhclw3q::::res://test/time_top.png<>res://scene/timer_selcet.gd<>uid://bp3b18iewhg3v::::res://test/timer_select.png<>uid://bfo52m1qya5fm::::res://test/select_timer_lable.png<>uid://dl1pt1jbomeu8::::res://test/select your timer.png<>res://scene/select_timer_pannel.gd<>uid://uvdum5f4xmg4::::res://test/chicken default.png
-filed_block.tscn::PackedScene::7259787699608521412::1710671840::0::1::::<><>::uid://dwcc2u8mv8n62::::res://assert/block.png<>res://script/filedBlock.gd
-flower_test.tscn::PackedScene::8272631413049873192::1711093894::0::1::::<><>::uid://dedt03bxpdkr6::::res://assert/flower.png<>res://script/flower_test.gd
-orange.tscn::PackedScene::526899403554696542::1710671840::0::1::::<><>::uid://b4q8c722k1i3w::::res://assert/orange.png<>res://script/orange_33.gd
 emoji.gd::GDScript::-1::1711088901::0::1::::<>Control<>::
+field_scene.tscn::PackedScene::1754424237175359802::1711094547::0::1::::<><>::res://script/filed_manager.gd<>res://script/state_manager.gd<>res://test/field_scene.gdshader<>res://script/top_left_button.gd<>uid://bgmnqusbnsq33::::res://assert/cursor.png<>uid://wgbnkjv0trj5::::res://test/123.png<>res://script/bottom_button.gd<>res://script/cursor.gd<>res://script/harvest_button.gd<>res://scene/cancel_timer_button.gd<>uid://coqdriybb3213::::res://assert/top_left_button.png<>uid://bj8rxrkwnxaha::::res://test/time_lable.tscn<>uid://dssmubdwges61::::res://test/dock_animation.tscn<>uid://bxulqnyewwby2::::res://test/dock_background7.png<>uid://car5vkm3y1tnt::::res://assert/Teemo Basic emote animations sprite sheet.png<>res://script/Camera2D.gd<>uid://c8ip1xby8l5my::::res://test/box.png<>uid://bo7sexrul1rl8::::res://assert/Water.png<>uid://c6ys854exs4yq::::res://test/cancel_timer.png<>uid://b51sotpby8rnc::::res://test/harvest_box_out_line.png<>uid://cwd3o7fbasocx::::res://test/harvest_anima.png<>uid://detslj0spn6x5::::res://test/1234.png<>res://scene/settalment_box.gd<>uid://ccs1q4y6rghpm::::res://test/settalment_pannel.png<>res://scene/emoji.gd<>uid://bgfg2cr76482j::::res://test/emo_box.png<>uid://52gygrhclw3q::::res://test/time_top.png<>res://scene/timer_selcet.gd<>uid://bp3b18iewhg3v::::res://test/timer_select.png<>uid://bfo52m1qya5fm::::res://test/select_timer_lable.png<>uid://dl1pt1jbomeu8::::res://test/select your timer.png<>res://scene/select_timer_pannel.gd<>uid://uvdum5f4xmg4::::res://test/chicken default.png<>uid://dcawb8vfcyd7k::::res://test/rabbit_animation.png
+filed_block.tscn::PackedScene::7259787699608521412::1710671840::0::1::::<><>::uid://dwcc2u8mv8n62::::res://assert/block.png<>res://script/filedBlock.gd
+flower_test.tscn::PackedScene::8272631413049873192::1711094212::0::1::::<><>::uid://dedt03bxpdkr6::::res://assert/flower.png<>res://script/flower_test.gd
+orange.tscn::PackedScene::526899403554696542::1710671840::0::1::::<><>::uid://b4q8c722k1i3w::::res://assert/orange.png<>res://script/orange_33.gd
 select_timer_pannel.gd::GDScript::-1::1711090637::0::1::::<>Sprite2D<>::
-timer_selcet.gd::GDScript::-1::1711090396::0::1::::<>Control<>::
 settalment_box.gd::GDScript::-1::1711032939::0::1::::<>PanelContainer<>::
+timer_selcet.gd::GDScript::-1::1711090396::0::1::::<>Control<>::
 ::res://script/::1711090686
 bottom_button.gd::GDScript::-1::1710671840::0::1::::<>Button<>::
 Camera2D.gd::GDScript::-1::1711026822::0::1::::<>Camera2D<>::
@@ -34,7 +34,7 @@ orange_33.gd::GDScript::-1::1710671840::0::1::::<>Sprite2D<>::
 state_manager.gd::GDScript::-1::1711090686::0::1::::<>Node2D<>::
 time_lable2.gd::GDScript::-1::1711088168::0::1::::<>Label<>::
 top_left_button.gd::GDScript::-1::1710671840::0::1::::<>Button<>::
-::res://test/::1711093982
+::res://test/::1711093985
 123.png::CompressedTexture2D::1556625298999661468::1711091474::1711091476::1::::<><>::
 1234.png::CompressedTexture2D::7480353664730010624::1711091610::1711091615::1::::<><>::
 app_icon.png::CompressedTexture2D::3038597815789111022::1710671840::1710671840::1::::<><>::

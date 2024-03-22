@@ -1,13 +1,3 @@
 res://scene/field_scene.tscn
-res://test/number_changer.tscn
-res://test/number_test.tscn
-res://test/time_lable.tscn
-res://scene/emoji.gd
-res://script/state_manager.gd
-res://script/filed_manager.gd
 res://scene/flower_test.tscn
-res://script/flower_test.gd
-res://script/cursor.gd
-res://scene/timer_selcet.gd
-res://script/time_lable2.gd
-res://scene/select_timer_pannel.gd
+res://script/bottom_button.gd
