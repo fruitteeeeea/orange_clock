@@ -1,3 +1,4 @@
 res://scene/field_scene.tscn
-res://scene/flower_test.tscn
-res://script/bottom_button.gd
+res://test/time_lable.tscn
+res://script/time_lable2.gd
+res://test/number_changer.tscn

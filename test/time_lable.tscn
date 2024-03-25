@@ -93,4 +93,13 @@ offset_right = 48.0
 offset_bottom = 55.0
 text = "0000"
 
+[node name="debug" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Camera2D" type="Camera2D" parent="debug"]
+enabled = false
+zoom = Vector2(3, 3)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

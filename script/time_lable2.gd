@@ -113,6 +113,7 @@ func hide_timer_lable():
 #===计时器暂停相关===
 #接受state_manager的暂停信号
 func _on_state_manager_pause_timer():
+	apply_shake()
 	pause_timer()
 
 #处于暂停状态时暂停计时器
@@ -140,5 +141,43 @@ func _on_timer_selceter_select_time(selected_time):
 	print(SelectedWaitTime)
 	timer.wait_time = SelectedWaitTime
 	print(timer.wait_time)
+
+#===应用抖动===
+func apply_shake():
+	#for i in range(5):
+		#change_position()
+		#print("完成")
+		#await get_tree().create_timer(0.05).timeout
 	
+	##===最后位置恢复到原点===
+	#var tween = create_tween()
+	#tween.set_ease(Tween.EASE_OUT)
+	#tween.set_trans(Tween.TRANS_EXPO)
+	#tween.tween_property(self, "pivot_offset", Vector2(0, 0), .1)
+	
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self, "pivot_offset", Vector2(0, -25), .1)
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(self, "pivot_offset", Vector2(0, 0), .4)
+
+
 	pass # Replace with function body.
+
+#===offset移动到随机位置写法===
+#func change_position():
+	#var new_position_x = randf_range(-10, 10)
+	#var new_position_y = randf_range(-10, 10)
+	#print("新坐标x", new_position_x, "新坐标y", new_position_y)
+	#var tween = create_tween()
+	#tween.set_ease(Tween.EASE_OUT)
+	#tween.set_trans(Tween.TRANS_EXPO)
+	#tween.tween_property(self, "pivot_offset", Vector2(new_position_x, new_position_y), .05)
+	#
+	
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept"):
+		apply_shake()
+		pass
+

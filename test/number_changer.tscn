@@ -1096,6 +1096,7 @@ script = ExtResource("1_4fhap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
+scale = Vector2(1, 8)
 texture = ExtResource("2_vyrjl")
 
 [node name="numbuer_animation_backward" type="AnimatedSprite2D" parent="."]
