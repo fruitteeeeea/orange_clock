@@ -221,9 +221,3 @@ func _on_cancel_timer_button_pressed():
 	do_destroy()
 
 #===Debug调试===
-
-
-
-
-
-
