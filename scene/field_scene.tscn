@@ -1,116 +1,32 @@
 [gd_scene format=3 uid="uid://y84d1fkp4cry"]
 
-[ext_resource type="Script" uid="uid://b4jwj2jo55unu" path="res://script/filed_manager.gd" id="1_6ow38"]
 [ext_resource type="Script" uid="uid://bo7g8ibmux4n2" path="res://script/state_manager.gd" id="1_7df2t"]
+
 [ext_resource type="Shader" uid="uid://mqpc7awg5tlq" path="res://test/field_scene.gdshader" id="1_jikfa"]
-[ext_resource type="Script" uid="uid://cojgr3u2y8wua" path="res://script/top_left_button.gd" id="2_c3gvt"]
-[ext_resource type="Texture2D" uid="uid://bgmnqusbnsq33" path="res://assert/cursor.png" id="2_xy56k"]
+
 [ext_resource type="Texture2D" uid="uid://wgbnkjv0trj5" path="res://test/123.png" id="3_3qlga"]
-[ext_resource type="Script" uid="uid://d2f3wyipy8t84" path="res://script/bottom_button.gd" id="3_f7b5f"]
-[ext_resource type="Script" uid="uid://b1fxmn6te4ucp" path="res://script/cursor.gd" id="4_2i84w"]
-[ext_resource type="Script" uid="uid://mro4k2crl70" path="res://script/harvest_button.gd" id="4_gunxn"]
-[ext_resource type="Script" uid="uid://dvmlynus7l0qd" path="res://scene/cancel_timer_button.gd" id="5_8mr6h"]
-[ext_resource type="Texture2D" uid="uid://coqdriybb3213" path="res://assert/top_left_button.png" id="5_tdjih"]
-[ext_resource type="PackedScene" uid="uid://bj8rxrkwnxaha" path="res://test/time_lable.tscn" id="7_88jv1"]
-[ext_resource type="PackedScene" uid="uid://dssmubdwges61" path="res://test/dock_animation.tscn" id="7_ex8uh"]
-[ext_resource type="Texture2D" uid="uid://bxulqnyewwby2" path="res://test/dock_background7.png" id="7_qbutg"]
-[ext_resource type="Texture2D" uid="uid://car5vkm3y1tnt" path="res://assert/Teemo Basic emote animations sprite sheet.png" id="8_400w7"]
-[ext_resource type="Script" uid="uid://c1i3ik0h1b8sn" path="res://script/Camera2D.gd" id="9_hj7l2"]
-[ext_resource type="Texture2D" uid="uid://c8ip1xby8l5my" path="res://test/box.png" id="9_j88sr"]
+
 [ext_resource type="Texture2D" uid="uid://bo7sexrul1rl8" path="res://assert/Water.png" id="10_16vgn"]
-[ext_resource type="Texture2D" uid="uid://c6ys854exs4yq" path="res://test/cancel_timer.png" id="11_7pt45"]
-[ext_resource type="Texture2D" uid="uid://b51sotpby8rnc" path="res://test/harvest_box_out_line.png" id="13_ixhkl"]
-[ext_resource type="Texture2D" uid="uid://cwd3o7fbasocx" path="res://test/harvest_anima.png" id="14_5l2du"]
+
 [ext_resource type="Texture2D" uid="uid://detslj0spn6x5" path="res://test/1234.png" id="14_pikh5"]
-[ext_resource type="Script" uid="uid://dijdewxdie1nw" path="res://scene/settalment_box.gd" id="16_1x6et"]
-[ext_resource type="Texture2D" uid="uid://ccs1q4y6rghpm" path="res://test/settalment_pannel.png" id="16_vuc7v"]
-[ext_resource type="Script" uid="uid://vmdpypgyujde" path="res://scene/emoji.gd" id="19_vg7v8"]
-[ext_resource type="Texture2D" uid="uid://bgfg2cr76482j" path="res://test/emo_box.png" id="19_w5igd"]
-[ext_resource type="Texture2D" uid="uid://52gygrhclw3q" path="res://test/time_top.png" id="20_svcwf"]
-[ext_resource type="Script" uid="uid://ukrslmff8e1y" path="res://scene/timer_selcet.gd" id="22_y6tqa"]
-[ext_resource type="Texture2D" uid="uid://bp3b18iewhg3v" path="res://test/timer_select.png" id="23_vayfk"]
-[ext_resource type="Texture2D" uid="uid://bfo52m1qya5fm" path="res://test/select_timer_lable.png" id="24_0h6yf"]
-[ext_resource type="Texture2D" uid="uid://dl1pt1jbomeu8" path="res://test/select your timer.png" id="24_hkyps"]
-[ext_resource type="Script" uid="uid://c3f7jtwy78vaw" path="res://scene/select_timer_pannel.gd" id="25_q83ki"]
+
 [ext_resource type="Texture2D" uid="uid://uvdum5f4xmg4" path="res://test/chicken default.png" id="30_ueden"]
+
 [ext_resource type="Texture2D" uid="uid://dcawb8vfcyd7k" path="res://test/rabbit_animation.png" id="34_bmbyj"]
+
 [ext_resource type="PackedScene" path="res://features/focus/focus_timer.tscn" id="35_focus_timer"]
+
+[ext_resource type="Script" path="res://app/main.gd" id="main_script"]
+
+[ext_resource type="PackedScene" path="res://features/field/field.tscn" id="field_scene"]
+
+[ext_resource type="PackedScene" path="res://features/field/camera_rig.tscn" id="camera_scene"]
+
+[ext_resource type="PackedScene" path="res://ui/hud/hud.tscn" id="hud_scene"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ek8lc"]
 shader = ExtResource("1_jikfa")
 shader_parameter/speed = 0.1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gxim"]
-atlas = ExtResource("14_5l2du")
-region = Rect2(0, 0, 32, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mph6p"]
-atlas = ExtResource("14_5l2du")
-region = Rect2(32, 0, 32, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxa5n"]
-atlas = ExtResource("14_5l2du")
-region = Rect2(64, 0, 32, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ys2yp"]
-atlas = ExtResource("14_5l2du")
-region = Rect2(96, 0, 32, 40)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gfi1v"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gxim")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mph6p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxa5n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ys2yp")
-}],
-"loop": 0,
-"name": &"default",
-"speed": 15.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_44u2k"]
-atlas = ExtResource("8_400w7")
-region = Rect2(128, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_36c1e"]
-atlas = ExtResource("8_400w7")
-region = Rect2(96, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xurv3"]
-atlas = ExtResource("8_400w7")
-region = Rect2(128, 224, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ekugk"]
-atlas = ExtResource("8_400w7")
-region = Rect2(96, 224, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4s3j4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_44u2k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_36c1e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xurv3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ekugk")
-}],
-"loop": 1,
-"name": &"happy",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugjet"]
 atlas = ExtResource("30_ueden")
@@ -498,11 +414,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Field_Scene" type="Node2D" unique_id=937840664]
+[node name="Field_Scene" type="Node2D"]
+script = ExtResource("main_script")
 
-[node name="black_ground_water" type="Node2D" parent="." unique_id=1196923302]
+[node name="SessionController" type="Node" parent="."]
+script = ExtResource("1_7df2t")
 
-[node name="TextureRect" type="TextureRect" parent="black_ground_water" unique_id=644434335]
+[node name="FocusTimer" parent="." instance=ExtResource("35_focus_timer")]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Decorations" type="Node2D" parent="World"]
+
+[node name="black_ground_water" type="Node2D" parent="World/Decorations" unique_id=1196923302]
+z_index = -1
+
+[node name="TextureRect" type="TextureRect" parent="World/Decorations/black_ground_water" unique_id=644434335]
 material = SubResource("ShaderMaterial_ek8lc")
 offset_left = -128.0
 offset_top = -256.0
@@ -511,246 +438,12 @@ offset_bottom = 240.0
 texture = ExtResource("10_16vgn")
 stretch_mode = 1
 
-[node name="island" type="Sprite2D" parent="." unique_id=1036036368]
+[node name="island" type="Sprite2D" parent="World/Decorations" unique_id=1036036368]
+z_index = -1
 texture = ExtResource("3_3qlga")
 
-[node name="state_manager" type="Node2D" parent="." unique_id=1454664538]
-script = ExtResource("1_7df2t")
-camera_zoom_out_scale = 2.5
-
-[node name="FocusTimer" parent="state_manager" unique_id=1286446927 instance=ExtResource("35_focus_timer")]
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="state_manager" unique_id=433938349]
-
-[node name="top_left_button" type="Button" parent="state_manager/CanvasLayer2" unique_id=615427016]
-self_modulate = Color(1, 1, 1, 0)
-offset_top = 150.0
-offset_right = 192.0
-offset_bottom = 230.0
-text = "start"
-script = ExtResource("2_c3gvt")
-
-[node name="topleft_button_texture" type="Sprite2D" parent="state_manager/CanvasLayer2/top_left_button" unique_id=901375918]
-scale = Vector2(3, 3)
-texture = ExtResource("5_tdjih")
-centered = false
-offset = Vector2(-2, -3)
-vframes = 5
-frame = 4
-
-[node name="bottom_button" type="Button" parent="state_manager/CanvasLayer2" unique_id=1210411495]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 144.5
-offset_top = 900.0
-offset_right = 224.5
-offset_bottom = 1028.0
-text = "种植"
-script = ExtResource("3_f7b5f")
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/bottom_button" unique_id=1422564767]
-position = Vector2(40, 72)
-scale = Vector2(3, 3)
-texture = ExtResource("7_qbutg")
-
-[node name="AnimatedSprite2D" parent="state_manager/CanvasLayer2/bottom_button" unique_id=1994907357 instance=ExtResource("7_ex8uh")]
-position = Vector2(40, 72)
-animation = &"pressed"
-frame = 0
-frame_progress = 0.0
-
-[node name="cancel_timer_button" type="Button" parent="state_manager/CanvasLayer2" unique_id=1332662185]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 360.0
-offset_top = 640.0
-offset_right = 520.0
-offset_bottom = 760.0
-text = "Cancle timer
-"
-script = ExtResource("5_8mr6h")
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/cancel_timer_button" unique_id=1845829778]
-position = Vector2(80, 64)
-scale = Vector2(3, 3)
-texture = ExtResource("11_7pt45")
-
-[node name="time_lable" parent="state_manager/CanvasLayer2" unique_id=741629254 instance=ExtResource("7_88jv1")]
-offset_left = -0.5
-offset_right = 0.5
-offset_bottom = 23.0
-scale = Vector2(3, 3)
-metadata/_edit_vertical_guides_ = [40.0]
-
-[node name="harvest_button" type="Button" parent="state_manager/CanvasLayer2" unique_id=1826192918]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = 144.0
-offset_top = 900.0
-offset_right = 224.0
-offset_bottom = 1024.0
-text = "收获"
-script = ExtResource("4_gunxn")
-
-[node name="harvest_box_outline" type="Sprite2D" parent="state_manager/CanvasLayer2/harvest_button" unique_id=1263223768]
-position = Vector2(-23, 16)
-scale = Vector2(3, 3)
-texture = ExtResource("13_ixhkl")
-centered = false
-
-[node name="harvest_button" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2/harvest_button" unique_id=1280851643]
-position = Vector2(40, 64)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_gfi1v")
-frame = 3
-frame_progress = 1.0
-
-[node name="settalment_box" type="PanelContainer" parent="state_manager/CanvasLayer2" unique_id=157761796]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 221.0
-offset_top = -142.0
-offset_right = 541.0
-offset_bottom = 226.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("16_1x6et")
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/settalment_box" unique_id=25304565]
-scale = Vector2(3, 3)
-texture = ExtResource("16_vuc7v")
-centered = false
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="state_manager/CanvasLayer2" unique_id=841286965]
-visible = false
-position = Vector2(304, 168)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_4s3j4")
-animation = &"happy"
-autoplay = "happy"
-frame_progress = 0.121126
-
-[node name="emoji" type="Control" parent="state_manager/CanvasLayer2" unique_id=1449515666]
-layout_mode = 3
-anchors_preset = 0
-scale = Vector2(3, 3)
-script = ExtResource("19_vg7v8")
-
-[node name="emo_box" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji" unique_id=299256897]
-position = Vector2(100, 55)
-texture = ExtResource("19_w5igd")
-
-[node name="line" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji/emo_box" unique_id=1622839258]
-position = Vector2(2.08165e-12, -30)
-scale = Vector2(1, 3)
-texture = ExtResource("20_svcwf")
-
-[node name="emo_box2" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji" unique_id=987520438]
-position = Vector2(100, 285)
-texture = ExtResource("19_w5igd")
-
-[node name="line" type="Sprite2D" parent="state_manager/CanvasLayer2/emoji/emo_box2" unique_id=1853999042]
-position = Vector2(2.08165e-12, 30)
-scale = Vector2(1, 3)
-texture = ExtResource("20_svcwf")
-
-[node name="timer_selceter" type="Control" parent="state_manager/CanvasLayer2" unique_id=1490320743]
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -692.0
-offset_right = -230.0
-offset_bottom = -468.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("22_y6tqa")
-
-[node name="select_timer_button" type="VBoxContainer" parent="state_manager/CanvasLayer2/timer_selceter" unique_id=294199804]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="twenty_four_min" type="Button" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button" unique_id=1282464904]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button/twenty_four_min" unique_id=299985359]
-scale = Vector2(3, 3)
-texture = ExtResource("23_vayfk")
-centered = false
-hframes = 3
-
-[node name="fourty_five_min" type="Button" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button" unique_id=455367083]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button/fourty_five_min" unique_id=710719265]
-scale = Vector2(3, 3)
-texture = ExtResource("23_vayfk")
-centered = false
-hframes = 3
-frame = 1
-
-[node name="test" type="Button" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button" unique_id=1305401383]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button/test" unique_id=1894660959]
-scale = Vector2(3, 3)
-texture = ExtResource("23_vayfk")
-centered = false
-hframes = 3
-frame = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter/select_timer_button" unique_id=588507979]
-
-[node name="select_timer_banner" type="Sprite2D" parent="state_manager/CanvasLayer2/timer_selceter" unique_id=1903161160]
-position = Vector2(195, 560)
-scale = Vector2(3, 3)
-texture = ExtResource("24_hkyps")
-
-[node name="select_timer_pannel" type="Sprite2D" parent="state_manager/CanvasLayer2" unique_id=2031434482]
-position = Vector2(-200, 712)
-scale = Vector2(3, 3)
-texture = ExtResource("24_0h6yf")
-vframes = 3
-script = ExtResource("25_q83ki")
-
-[node name="Box" type="Sprite2D" parent="state_manager/CanvasLayer2" unique_id=1940518131]
-scale = Vector2(3, 3)
-texture = ExtResource("9_j88sr")
-centered = false
-
-[node name="Sprite2D" type="Sprite2D" parent="state_manager/CanvasLayer2" unique_id=574981290]
-
-[node name="Debug" type="CanvasLayer" parent="." unique_id=1025982733]
-visible = false
-
-[node name="Button" type="Button" parent="Debug" unique_id=1234424460]
-offset_right = 168.0
-offset_bottom = 112.0
-text = "显示"
-
-[node name="Button2" type="Button" parent="Debug" unique_id=410194139]
-offset_left = 176.0
-offset_right = 344.0
-offset_bottom = 112.0
-text = "隐藏"
-
-[node name="filed_manager" type="Node2D" parent="." unique_id=364854715]
-y_sort_enabled = true
-script = ExtResource("1_6ow38")
-
-[node name="chicken" type="AnimatedSprite2D" parent="filed_manager" unique_id=776591670]
+[node name="chicken" type="AnimatedSprite2D" parent="World/Decorations" unique_id=776591670]
+z_index = -1
 position = Vector2(32, -32)
 sprite_frames = SubResource("SpriteFrames_2a5yk")
 animation = &"eatting"
@@ -758,26 +451,18 @@ autoplay = "eatting"
 frame_progress = 0.351726
 flip_h = true
 
-[node name="cursor" type="Sprite2D" parent="." unique_id=2040393317]
-position = Vector2(150, -60)
-texture = ExtResource("2_xy56k")
-offset = Vector2(2.08165e-12, -30)
-script = ExtResource("4_2i84w")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=67402862]
-script = ExtResource("9_hj7l2")
-
-[node name="filed_half" type="Sprite2D" parent="." unique_id=1035274132]
+[node name="filed_half" type="Sprite2D" parent="World/Decorations" unique_id=1035274132]
+z_index = 1
 texture = ExtResource("14_pikh5")
 
-[node name="chicken2" type="AnimatedSprite2D" parent="filed_half" unique_id=1448891758]
+[node name="chicken2" type="AnimatedSprite2D" parent="World/Decorations/filed_half" unique_id=1448891758]
 position = Vector2(-40, 32)
 sprite_frames = SubResource("SpriteFrames_2a5yk")
 animation = &"sleepy"
 autoplay = "sleepy"
 frame_progress = 0.625017
 
-[node name="chicken3" type="AnimatedSprite2D" parent="filed_half" unique_id=190473428]
+[node name="chicken3" type="AnimatedSprite2D" parent="World/Decorations/filed_half" unique_id=190473428]
 position = Vector2(-49, -41)
 sprite_frames = SubResource("SpriteFrames_2a5yk")
 animation = &"sleepy"
@@ -785,7 +470,7 @@ autoplay = "sleepy"
 frame_progress = 0.625017
 flip_h = true
 
-[node name="chicken4" type="AnimatedSprite2D" parent="filed_half" unique_id=1123344451]
+[node name="chicken4" type="AnimatedSprite2D" parent="World/Decorations/filed_half" unique_id=1123344451]
 position = Vector2(-13, 71)
 sprite_frames = SubResource("SpriteFrames_2a5yk")
 animation = &"jump"
@@ -793,18 +478,14 @@ autoplay = "sleepy"
 frame_progress = 0.416238
 flip_h = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="filed_half" unique_id=321447372]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="World/Decorations/filed_half" unique_id=321447372]
 position = Vector2(44, 2)
 sprite_frames = SubResource("SpriteFrames_wak51")
 autoplay = "default"
 frame_progress = 0.2921
 
-[connection signal="pressed" from="state_manager/CanvasLayer2/top_left_button" to="state_manager" method="_on_top_left_button_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="state_manager" method="_on_bottom_button_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="state_manager" method="_on_cancel_timer_button_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager/CanvasLayer2/harvest_button" method="_on_pressed"]
-[connection signal="duration_selected" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_duration_selected"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/twenty_four_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_twenty_four_min_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/fourty_five_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_fourty_five_min_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/test" to="state_manager/CanvasLayer2/timer_selceter" method="_on_test_pressed"]
+[node name="Field" parent="World" instance=ExtResource("field_scene")]
+
+[node name="CameraRig" parent="World" instance=ExtResource("camera_scene")]
+
+[node name="HUD" parent="." instance=ExtResource("hud_scene")]

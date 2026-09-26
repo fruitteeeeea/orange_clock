@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://sandbox/field_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" path="res://features/field/field.tscn" id="2_field"]
+[ext_resource type="PackedScene" path="res://features/field/camera_rig.tscn" id="3_camera"]
+
+[node name="FieldPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Field" parent="." instance=ExtResource("2_field")]
+
+[node name="CameraRig" parent="." instance=ExtResource("3_camera")]
+
+[node name="Help" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Help"]
+offset_left = 8.0
+offset_top = 800.0
+theme_override_font_sizes/font_size = 14
+text = "Field preview: P = plant, M = mature\nH = harvest, C = clear"

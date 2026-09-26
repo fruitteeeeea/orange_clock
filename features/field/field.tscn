@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://b4jwj2jo55unu" path="res://script/filed_manager.gd" id="1_6ow38"]
+
+[ext_resource type="Texture2D" uid="uid://bgmnqusbnsq33" path="res://assert/cursor.png" id="2_xy56k"]
+
+[ext_resource type="Script" uid="uid://b1fxmn6te4ucp" path="res://script/cursor.gd" id="4_2i84w"]
+
+[node name="Field" type="Node2D"]
+script = ExtResource("1_6ow38")
+
+[node name="Crops" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Cursor" type="Sprite2D" parent="." unique_id=2040393317]
+position = Vector2(150, -60)
+texture = ExtResource("2_xy56k")
+offset = Vector2(2.08165e-12, -30)
+script = ExtResource("4_2i84w")

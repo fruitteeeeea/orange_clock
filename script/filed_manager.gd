@@ -1,7 +1,8 @@
+class_name OrangeField
 extends Node2D
 
 signal field_ready
-signal plant_finished(round_id: int)
+signal planting_completed(round_id: int)
 signal harvest_completed(round_id: int)
 signal clear_completed(round_id: int)
 
@@ -38,7 +39,8 @@ var current_block_index = 0
 
 #===cursor模块====
 #加载cursor
-@onready var cursor = $"../cursor"
+@onready var cursor = $Cursor
+@onready var crop_container: Node2D = $Crops
 
 
 
@@ -67,7 +69,7 @@ func generate_filed_blocks():
 			# 增加计数器
 			block_id += 1 
 			# 添加FieldBlock到filed_manager
-			add_child(field_block)
+			crop_container.add_child(field_block)
 			blocks.append(field_block) 
 			
 			#制造延迟感
@@ -79,7 +81,7 @@ func generate_filed_blocks():
 	field_ready.emit()
 
 #进入plant状态
-func enter_plant_state(session_round: int):
+func begin_planting(session_round: int):
 	if not is_ready or _busy:
 		return
 	_round_id = session_round
@@ -161,19 +163,17 @@ func move_cursor_and_plant():
 		#移动光标
 		cursor.move_cursor(Vector2(150, -60))
 		
-		##消失按钮
-		#plant_button.position = Vector2(144, 900)
 		print("结局")
 		# Close input before notifying the controller.
 		plant_state = false
-		plant_finished.emit(_round_id)
+		planting_completed.emit(_round_id)
 	pass
 
 #生成作物
 func do_plant(position):
 	print("当前种植的index是：", current_block_index)
 	var flower = flower.instantiate()
-	add_child(flower)
+	crop_container.add_child(flower)
 	flower.position = position
 	flower.name = "Flower_" + str(flower_id) 
 	#作物加入数组，方便引用
@@ -181,14 +181,14 @@ func do_plant(position):
 
 ##===这里是收获模块===
 #在这里面更改作物状态
-func change_sprite(session_round: int):
+func mature_all(session_round: int):
 	if session_round != _round_id or _busy:
 		return
 	for flower in flowers:
 			if flower and flower.is_inside_tree() and flower.has_method("MATURE"):
 				flower.MATURE()
 
-func do_harvest(session_round: int) -> void:
+func harvest_all(session_round: int) -> void:
 	if session_round != _round_id or _busy:
 		return
 	_busy = true
@@ -207,7 +207,7 @@ func do_harvest(session_round: int) -> void:
 	_busy = false
 	harvest_completed.emit(session_round)
 
-func do_destroy(session_round: int) -> void:
+func clear_all(session_round: int) -> void:
 	if session_round != _round_id or _busy:
 		return
 	_busy = true
@@ -227,8 +227,7 @@ func do_destroy(session_round: int) -> void:
 	_busy = false
 	clear_completed.emit(session_round)
 
-func _on_bottom_button_pressed() -> void:
+func plant_next() -> void:
 	if not plant_state or _busy:
 		return
-	$"../state_manager/CanvasLayer2/bottom_button/AnimatedSprite2D".button_pressed()
 	plant_stuff()

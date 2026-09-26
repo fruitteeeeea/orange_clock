@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://sandbox/hud_preview.gd" id="1_preview"]
+[ext_resource type="PackedScene" path="res://ui/hud/hud.tscn" id="2_hud"]
+
+[node name="HUDPreview" type="Node"]
+script = ExtResource("1_preview")
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]
+
+[node name="Help" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Label" type="Label" parent="Help"]
+offset_left = 8.0
+offset_top = 800.0
+theme_override_font_sizes/font_size = 14
+text = "HUD preview: Right = next state, R = reset"
