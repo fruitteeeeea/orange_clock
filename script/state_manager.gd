@@ -3,20 +3,19 @@ extends Node2D
 #===自定义信号===
 #告诉filed_manager进入种植模式
 signal enter_plant_state
-#在倒计时阶段暂停计时器
-signal pause_timer 
 #更新作物状态
 signal updata_plant_state
 
-#每次初始化记得重设pause状态
-var pause: bool = false
+# 本轮时间统一使用秒；暂停状态由 FocusTimer 管理。
+var selected_duration_seconds: int = 5
+@onready var focus_timer: FocusTimer = $FocusTimer
 
 #===UI组件=== 
 @onready var topleft_button = $CanvasLayer2/top_left_button
 @onready var topleft_button_texture = $CanvasLayer2/top_left_button/topleft_button_texture
 
 @onready var bottom_button = $CanvasLayer2/bottom_button
-@onready var time_lable = $CanvasLayer2/time_lable
+@onready var time_lable: FlipClock = $CanvasLayer2/time_lable
 @onready var cancel_timer_button = $CanvasLayer2/cancel_timer_button
 @onready var harvest_button = $CanvasLayer2/harvest_button
 
@@ -57,6 +56,9 @@ enum State{
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	focus_timer.remaining_seconds_changed.connect(time_lable.set_remaining_seconds)
+	focus_timer.paused_changed.connect(_on_focus_timer_paused_changed)
+	focus_timer.completed.connect(_on_focus_timer_completed)
 	Initialize()
 	pass # Replace with function body.
 
@@ -69,7 +71,7 @@ func _process(delta):
 #注意在这里填写的是执行按钮按下后执行的逻辑
 #初始化
 func Initialize():
-	pause = false
+	focus_timer.cancel()
 	settalment_box.hide_settalment_box()
 	topleft_button.hide_top_left_button()
 	topleft_button.show_top_left_button("plant")
@@ -112,16 +114,14 @@ func WattingCountDown():
 	topleft_button.show_top_left_button_2("pause")
 	topleft_button_texture.frame = 2
 	time_lable.show_timer_lable()
-	#同时启动计时
-	time_lable.timer.start()
-	#强制更新一下暂停状态
-	time_lable.timer.paused = false
+	focus_timer.start(selected_duration_seconds)
 	camera.do_zoom(Vector2(camera_zoom_out_scale, camera_zoom_out_scale))
 	
 	#将表情包转移到下方
 	emoji.hide_emo_box()
 	await get_tree().create_timer(.4).timeout
-	emoji.show_button_emo_box()
+	if current_state == State.COUNTDOWN and not focus_timer.is_paused:
+		emoji.show_button_emo_box()
 	pass
 	
 #倒计时完成 进入结算
@@ -193,34 +193,27 @@ func _on_top_left_button_pressed():
 
 #暂停时执行的逻辑
 func pause_and_continue():
-	print("pause")
-	emit_signal("pause_timer")
-	if pause == false:
-		topleft_button.hide_top_left_button()
-		topleft_button.show_top_left_button_2("continue")
-		#注意看continue是第几帧
-		topleft_button_texture.frame = 3
-		
-		#弹出取消按钮
-		cancel_timer_button.show_cancel_timer_button()
-		#隐藏底部emoji
-		emoji.hide_button_emo_box()
-		
-		#切换一下当前的暂停状态
-		pause = not pause
+	if focus_timer.is_paused:
+		focus_timer.resume()
 	else:
-		topleft_button.hide_top_left_button()
+		focus_timer.pause()
+	time_lable.apply_shake()
+
+
+func _on_focus_timer_paused_changed(is_paused: bool) -> void:
+	if current_state != State.COUNTDOWN:
+		return
+	topleft_button.hide_top_left_button()
+	if is_paused:
+		topleft_button.show_top_left_button_2("continue")
+		topleft_button_texture.frame = 3
+		cancel_timer_button.show_cancel_timer_button()
+		emoji.hide_button_emo_box()
+	else:
 		topleft_button.show_top_left_button_2("pause")
-		#注意看pause是第几帧
 		topleft_button_texture.frame = 2
-		
-		#隐藏取消按钮
 		cancel_timer_button.hide_cancel_timer_button()
-		#显示底部emoji
 		emoji.show_button_emo_box()
-		
-		#切换一下当前的暂停状态
-		pause = not pause
 
 
 #接受来自filed_mananger的种植完毕信号
@@ -230,9 +223,9 @@ func _on_filed_manager_plant_finished():
 
 
 #倒计时结束后推进状态
-func _on_time_lable_label_time_out():
-	execute_current_state_logic()
-	print("执行当前逻辑。原因：label_time_out")
+func _on_focus_timer_completed() -> void:
+	if current_state == State.COUNTDOWN:
+		execute_current_state_logic()
 
 
 
@@ -248,10 +241,8 @@ func _on_harvest_button_pressed():
 func _on_cancel_timer_button_pressed():
 	time_lable.hide_timer_lable()
 	topleft_button.hide_top_left_button()
-	#这个时候必须正式停止时间 不然会重新激活 同时更改暂停状态
-	time_lable.stop_timer_and_not_pause()
-	
 	current_state = State.CANCEL
+	focus_timer.cancel()
 	cancel_timer_button.hide_cancel_timer_button()
 	pass # Replace with function body.
 
@@ -259,3 +250,8 @@ func _on_cancel_timer_button_pressed():
 func _on_timer_selceter_select_time_finished():
 	execute_current_state_logic()
 	pass # Replace with function body.
+
+
+func _on_timer_selceter_select_time(duration_seconds: int) -> void:
+	selected_duration_seconds = duration_seconds
+	time_lable.set_remaining_seconds(duration_seconds)

@@ -47,7 +47,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="time_lable" type="Label" node_paths=PackedStringArray("timer")]
+[node name="time_lable" type="Label"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -57,12 +57,6 @@ offset_right = -114.0
 offset_bottom = 79.0
 grow_horizontal = 2
 script = ExtResource("1_1ioa0")
-timer = NodePath("Timer")
-wait_time = 2
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
 
 [node name="flip_clock" type="Node2D" parent="."]
 
@@ -101,5 +95,3 @@ offset_bottom = 40.0
 [node name="Camera2D" type="Camera2D" parent="debug"]
 enabled = false
 zoom = Vector2(3, 3)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

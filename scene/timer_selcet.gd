@@ -1,6 +1,6 @@
 extends Control
 
-signal select_time(select_time)
+signal select_time(duration_seconds: int)
 signal select_time_finished
 
 @export var position_show = Vector2(0, 130)
@@ -30,9 +30,8 @@ func hide_timer_selecter():
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "position", position_hide, .4)
 
-func select_timer_done(select_timer_is:int):
-	print("timer select +", str(select_timer_is), "min")
-	emit_signal("select_time", select_timer_is)
+func select_timer_done(duration_seconds: int):
+	emit_signal("select_time", duration_seconds)
 	pass
 	
 
@@ -45,7 +44,7 @@ func _on_twenty_four_min_pressed():
 	#更改一下面板 
 	select_timer_pannel.frame = 0
 	#传递信号到计时器
-	select_timer_done(24)
+	select_timer_done(24 * 60)
 	#发送完成选择时间的信号
 	emit_signal("select_time_finished")
 	pass # Replace with function body.
@@ -53,7 +52,7 @@ func _on_twenty_four_min_pressed():
 #选择45分钟
 func _on_fourty_five_min_pressed():
 	select_timer_pannel.frame = 1
-	select_timer_done(45)
+	select_timer_done(45 * 60)
 	emit_signal("select_time_finished")
 	pass # Replace with function body.
 

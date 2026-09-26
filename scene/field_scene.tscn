@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://c3f7jtwy78vaw" path="res://scene/select_timer_pannel.gd" id="25_q83ki"]
 [ext_resource type="Texture2D" uid="uid://uvdum5f4xmg4" path="res://test/chicken default.png" id="30_ueden"]
 [ext_resource type="Texture2D" uid="uid://dcawb8vfcyd7k" path="res://test/rabbit_animation.png" id="34_bmbyj"]
+[ext_resource type="PackedScene" path="res://features/focus/focus_timer.tscn" id="35_focus_timer"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ek8lc"]
 shader = ExtResource("1_jikfa")
@@ -517,6 +518,8 @@ texture = ExtResource("3_3qlga")
 script = ExtResource("1_7df2t")
 camera_zoom_out_scale = 2.5
 
+[node name="FocusTimer" parent="state_manager" unique_id=1286446927 instance=ExtResource("35_focus_timer")]
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="state_manager" unique_id=433938349]
 
 [node name="top_left_button" type="Button" parent="state_manager/CanvasLayer2" unique_id=615427016]
@@ -575,7 +578,6 @@ offset_left = -0.5
 offset_right = 0.5
 offset_bottom = 23.0
 scale = Vector2(3, 3)
-wait_time = 3
 metadata/_edit_vertical_guides_ = [40.0]
 
 [node name="harvest_button" type="Button" parent="state_manager/CanvasLayer2" unique_id=1826192918]
@@ -798,17 +800,15 @@ autoplay = "default"
 frame_progress = 0.2921
 
 [connection signal="enter_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_enter_plant_state"]
-[connection signal="pause_timer" from="state_manager" to="state_manager/CanvasLayer2/time_lable" method="_on_state_manager_pause_timer"]
 [connection signal="updata_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_updata_plant_state"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/top_left_button" to="state_manager" method="_on_top_left_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="filed_manager" method="_on_bottom_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="state_manager" method="_on_cancel_timer_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="filed_manager" method="_on_cancel_timer_button_pressed"]
-[connection signal="label_time_out" from="state_manager/CanvasLayer2/time_lable" to="state_manager" method="_on_time_lable_label_time_out"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager/CanvasLayer2/harvest_button" method="_on_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]
-[connection signal="select_time" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager/CanvasLayer2/time_lable" method="_on_timer_selceter_select_time"]
+[connection signal="select_time" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_timer_selceter_select_time"]
 [connection signal="select_time_finished" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_timer_selceter_select_time_finished"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/twenty_four_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_twenty_four_min_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/fourty_five_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_fourty_five_min_pressed"]
