@@ -1,28 +1,17 @@
 [gd_scene format=3 uid="uid://y84d1fkp4cry"]
 
 [ext_resource type="Script" uid="uid://bo7g8ibmux4n2" path="res://script/state_manager.gd" id="1_7df2t"]
-
 [ext_resource type="Shader" uid="uid://mqpc7awg5tlq" path="res://test/field_scene.gdshader" id="1_jikfa"]
-
 [ext_resource type="Texture2D" uid="uid://wgbnkjv0trj5" path="res://test/123.png" id="3_3qlga"]
-
 [ext_resource type="Texture2D" uid="uid://bo7sexrul1rl8" path="res://assert/Water.png" id="10_16vgn"]
-
 [ext_resource type="Texture2D" uid="uid://detslj0spn6x5" path="res://test/1234.png" id="14_pikh5"]
-
 [ext_resource type="Texture2D" uid="uid://uvdum5f4xmg4" path="res://test/chicken default.png" id="30_ueden"]
-
 [ext_resource type="Texture2D" uid="uid://dcawb8vfcyd7k" path="res://test/rabbit_animation.png" id="34_bmbyj"]
-
 [ext_resource type="PackedScene" path="res://features/focus/focus_timer.tscn" id="35_focus_timer"]
-
-[ext_resource type="Script" path="res://app/main.gd" id="main_script"]
-
-[ext_resource type="PackedScene" path="res://features/field/field.tscn" id="field_scene"]
-
 [ext_resource type="PackedScene" path="res://features/field/camera_rig.tscn" id="camera_scene"]
-
+[ext_resource type="PackedScene" path="res://features/field/field.tscn" id="field_scene"]
 [ext_resource type="PackedScene" path="res://ui/hud/hud.tscn" id="hud_scene"]
+[ext_resource type="Script" uid="uid://boa8epxi584ty" path="res://app/main.gd" id="main_script"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ek8lc"]
 shader = ExtResource("1_jikfa")
@@ -414,17 +403,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Field_Scene" type="Node2D"]
+[node name="Field_Scene" type="Node2D" unique_id=955054688]
 script = ExtResource("main_script")
 
-[node name="SessionController" type="Node" parent="."]
+[node name="SessionController" type="Node" parent="." unique_id=1858910124]
 script = ExtResource("1_7df2t")
 
-[node name="FocusTimer" parent="." instance=ExtResource("35_focus_timer")]
+[node name="FocusTimer" parent="." unique_id=395946918 instance=ExtResource("35_focus_timer")]
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=2112613298]
 
-[node name="Decorations" type="Node2D" parent="World"]
+[node name="Decorations" type="Node2D" parent="World" unique_id=104396059]
 
 [node name="black_ground_water" type="Node2D" parent="World/Decorations" unique_id=1196923302]
 z_index = -1
@@ -484,8 +473,8 @@ sprite_frames = SubResource("SpriteFrames_wak51")
 autoplay = "default"
 frame_progress = 0.2921
 
-[node name="Field" parent="World" instance=ExtResource("field_scene")]
+[node name="Field" parent="World" unique_id=1672721918 instance=ExtResource("field_scene")]
 
-[node name="CameraRig" parent="World" instance=ExtResource("camera_scene")]
+[node name="CameraRig" parent="World" unique_id=333063678 instance=ExtResource("camera_scene")]
 
-[node name="HUD" parent="." instance=ExtResource("hud_scene")]
+[node name="HUD" parent="." unique_id=1650478431 instance=ExtResource("hud_scene")]
