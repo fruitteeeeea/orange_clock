@@ -1,7 +1,14 @@
 extends Node2D
 
-signal plant_finished
-signal harvest_finished
+signal field_ready
+signal plant_finished(round_id: int)
+signal harvest_completed(round_id: int)
+signal clear_completed(round_id: int)
+
+var is_ready: bool = false
+var _round_id: int = 0
+var _operation_version: int = 0
+var _busy: bool = false
 
 #===种植相关模块===
 #种植状态
@@ -68,8 +75,15 @@ func generate_filed_blocks():
 			#打印当前blcok数量
 			print(blocks.size())
 
+	is_ready = true
+	field_ready.emit()
+
 #进入plant状态
-func enter_plant_state():
+func enter_plant_state(session_round: int):
+	if not is_ready or _busy:
+		return
+	_round_id = session_round
+	_operation_version += 1
 	#重设当前id索引为第一个
 	fouce_update_current_block_index()
 	#cursor移动到第一个block位置
@@ -150,9 +164,9 @@ func move_cursor_and_plant():
 		##消失按钮
 		#plant_button.position = Vector2(144, 900)
 		print("结局")
-		emit_signal("plant_finished")
-		#关闭种植状态
+		# Close input before notifying the controller.
 		plant_state = false
+		plant_finished.emit(_round_id)
 	pass
 
 #生成作物
@@ -167,57 +181,54 @@ func do_plant(position):
 
 ##===这里是收获模块===
 #在这里面更改作物状态
-func change_sprite():
+func change_sprite(session_round: int):
+	if session_round != _round_id or _busy:
+		return
 	for flower in flowers:
 			if flower and flower.is_inside_tree() and flower.has_method("MATURE"):
 				flower.MATURE()
 
-func do_harvest():
-	for flower in flowers:
-		#if flower != null:
-			flower.HARVEST()
-			print("收获一个作物")
-			await get_tree().create_timer(0.1).timeout
-	
-	#清除flowrs数组
+func do_harvest(session_round: int) -> void:
+	if session_round != _round_id or _busy:
+		return
+	_busy = true
+	_operation_version += 1
+	var version: int = _operation_version
+	var crops: Array = flowers.duplicate()
+	for crop in crops:
+		if version != _operation_version or session_round != _round_id:
+			return
+		if is_instance_valid(crop):
+			crop.HARVEST()
+		await get_tree().create_timer(0.1).timeout
+	if version != _operation_version or session_round != _round_id:
+		return
 	flowers.clear()
-	emit_signal("harvest_finished")
-	print("harvest finished")
+	_busy = false
+	harvest_completed.emit(session_round)
 
-##执行取消当前种植计划
-func do_destroy():
-	for flower in flowers:
-		#if flower != null:
-			flower.DESTROY()
-			print("收摧毁一个作物")
-			await get_tree().create_timer(0.1).timeout
-			
-		#清除flowrs数组
+func do_destroy(session_round: int) -> void:
+	if session_round != _round_id or _busy:
+		return
+	_busy = true
+	plant_state = false
+	_operation_version += 1
+	var version: int = _operation_version
+	var crops: Array = flowers.duplicate()
+	for crop in crops:
+		if version != _operation_version or session_round != _round_id:
+			return
+		if is_instance_valid(crop):
+			crop.DESTROY()
+		await get_tree().create_timer(0.1).timeout
+	if version != _operation_version or session_round != _round_id:
+		return
 	flowers.clear()
-	emit_signal("harvest_finished")
-	print("harvest finished")
+	_busy = false
+	clear_completed.emit(session_round)
 
-func _process(delta):
-	pass
-
-func _on_state_manager_enter_plant_state():
-	enter_plant_state()
-
-
-func _on_bottom_button_pressed():
+func _on_bottom_button_pressed() -> void:
+	if not plant_state or _busy:
+		return
 	$"../state_manager/CanvasLayer2/bottom_button/AnimatedSprite2D".button_pressed()
 	plant_stuff()
-
-
-func _on_state_manager_updata_plant_state():
-	change_sprite()
-
-#收获作物
-func _on_harvest_button_pressed():
-	do_harvest()
-
-#摧毁作物
-func _on_cancel_timer_button_pressed():
-	do_destroy()
-
-#===Debug调试===

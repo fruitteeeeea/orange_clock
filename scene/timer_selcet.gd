@@ -1,13 +1,11 @@
 extends Control
 
-signal select_time(duration_seconds: int)
-signal select_time_finished
+signal duration_selected(duration_seconds: int)
 
 @export var position_show = Vector2(0, 130)
 @export var position_hide = Vector2(-200, 130)
 
 @onready var select_timer_banner = $select_timer_banner
-@onready var select_timer_pannel = $"../select_timer_pannel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,35 +28,11 @@ func hide_timer_selecter():
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "position", position_hide, .4)
 
-func select_timer_done(duration_seconds: int):
-	emit_signal("select_time", duration_seconds)
-	pass
-	
+func _on_twenty_four_min_pressed() -> void:
+	duration_selected.emit(24 * 60)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_fourty_five_min_pressed() -> void:
+	duration_selected.emit(45 * 60)
 
-#选择24分钟
-func _on_twenty_four_min_pressed():
-	#更改一下面板 
-	select_timer_pannel.frame = 0
-	#传递信号到计时器
-	select_timer_done(24 * 60)
-	#发送完成选择时间的信号
-	emit_signal("select_time_finished")
-	pass # Replace with function body.
-
-#选择45分钟
-func _on_fourty_five_min_pressed():
-	select_timer_pannel.frame = 1
-	select_timer_done(45 * 60)
-	emit_signal("select_time_finished")
-	pass # Replace with function body.
-
-
-func _on_test_pressed():
-	select_timer_pannel.frame = 2
-	select_timer_done(5)
-	emit_signal("select_time_finished")
-	pass # Replace with function body.
+func _on_test_pressed() -> void:
+	duration_selected.emit(5)

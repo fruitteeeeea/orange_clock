@@ -34,5 +34,5 @@ func _on_pressed():
 	# 将动画的帧重置为第一帧
 	harvest_button.frame = 0
 	# 重新开始播放动画
-	harvest_button.play("pressed")
+	harvest_button.play("default")
 	pass # Replace with function body.

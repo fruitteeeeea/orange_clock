@@ -799,19 +799,12 @@ sprite_frames = SubResource("SpriteFrames_wak51")
 autoplay = "default"
 frame_progress = 0.2921
 
-[connection signal="enter_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_enter_plant_state"]
-[connection signal="updata_plant_state" from="state_manager" to="filed_manager" method="_on_state_manager_updata_plant_state"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/top_left_button" to="state_manager" method="_on_top_left_button_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="filed_manager" method="_on_bottom_button_pressed"]
+[connection signal="pressed" from="state_manager/CanvasLayer2/bottom_button" to="state_manager" method="_on_bottom_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="state_manager" method="_on_cancel_timer_button_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/cancel_timer_button" to="filed_manager" method="_on_cancel_timer_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager" method="_on_harvest_button_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="state_manager/CanvasLayer2/harvest_button" method="_on_pressed"]
-[connection signal="pressed" from="state_manager/CanvasLayer2/harvest_button" to="filed_manager" method="_on_harvest_button_pressed"]
-[connection signal="select_time" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_timer_selceter_select_time"]
-[connection signal="select_time_finished" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_timer_selceter_select_time_finished"]
+[connection signal="duration_selected" from="state_manager/CanvasLayer2/timer_selceter" to="state_manager" method="_on_duration_selected"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/twenty_four_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_twenty_four_min_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/fourty_five_min" to="state_manager/CanvasLayer2/timer_selceter" method="_on_fourty_five_min_pressed"]
 [connection signal="pressed" from="state_manager/CanvasLayer2/timer_selceter/select_timer_button/test" to="state_manager/CanvasLayer2/timer_selceter" method="_on_test_pressed"]
-[connection signal="harvest_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_harvest_finished"]
-[connection signal="plant_finished" from="filed_manager" to="state_manager" method="_on_filed_manager_plant_finished"]
