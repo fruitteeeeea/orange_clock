@@ -1,6 +1,6 @@
-[gd_scene load_steps=147 format=3 uid="uid://bvjw36vy7jtkf"]
+[gd_scene format=3 uid="uid://bvjw36vy7jtkf"]
 
-[ext_resource type="Script" path="res://test/number_changer.gd" id="1_4fhap"]
+[ext_resource type="Script" uid="uid://uywoqe7k5ycg" path="res://test/number_changer.gd" id="1_4fhap"]
 [ext_resource type="Texture2D" uid="uid://bmixne4h1kg1h" path="res://test/number_am_FW.png" id="2_25lef"]
 [ext_resource type="Texture2D" uid="uid://52gygrhclw3q" path="res://test/time_top.png" id="2_vyrjl"]
 [ext_resource type="Texture2D" uid="uid://ddmqujr2kpkmo" path="res://test/number_am_BW.png" id="3_lwiwv"]
@@ -309,7 +309,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3h34q")
 }],
-"loop": false,
+"loop": 0,
 "name": &"0",
 "speed": 15.0
 }, {
@@ -335,7 +335,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u3jg5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"1",
 "speed": 15.0
 }, {
@@ -361,7 +361,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0lmxp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"2",
 "speed": 15.0
 }, {
@@ -387,7 +387,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dvh77")
 }],
-"loop": false,
+"loop": 0,
 "name": &"3",
 "speed": 15.0
 }, {
@@ -413,7 +413,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6pomd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"4",
 "speed": 15.0
 }, {
@@ -439,7 +439,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yvtfb")
 }],
-"loop": false,
+"loop": 0,
 "name": &"5",
 "speed": 15.0
 }, {
@@ -465,7 +465,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ggvoq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"6",
 "speed": 15.0
 }, {
@@ -491,7 +491,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_07hkh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"7",
 "speed": 15.0
 }, {
@@ -517,7 +517,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uhhkn")
 }],
-"loop": false,
+"loop": 0,
 "name": &"8",
 "speed": 15.0
 }, {
@@ -543,7 +543,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_381sl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"9",
 "speed": 15.0
 }]
@@ -852,7 +852,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6dknc")
 }],
-"loop": false,
+"loop": 0,
 "name": &"0",
 "speed": 15.0
 }, {
@@ -878,7 +878,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ecgn1")
 }],
-"loop": false,
+"loop": 0,
 "name": &"1",
 "speed": 15.0
 }, {
@@ -904,7 +904,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_x0d80")
 }],
-"loop": false,
+"loop": 0,
 "name": &"2",
 "speed": 15.0
 }, {
@@ -930,7 +930,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6pb1m")
 }],
-"loop": false,
+"loop": 0,
 "name": &"3",
 "speed": 15.0
 }, {
@@ -956,7 +956,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_omdde")
 }],
-"loop": false,
+"loop": 0,
 "name": &"4",
 "speed": 15.0
 }, {
@@ -982,7 +982,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wmx2r")
 }],
-"loop": false,
+"loop": 0,
 "name": &"5",
 "speed": 15.0
 }, {
@@ -1008,7 +1008,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2m3se")
 }],
-"loop": false,
+"loop": 0,
 "name": &"6",
 "speed": 15.0
 }, {
@@ -1034,7 +1034,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0deuw")
 }],
-"loop": false,
+"loop": 0,
 "name": &"7",
 "speed": 15.0
 }, {
@@ -1060,7 +1060,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_31klh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"8",
 "speed": 15.0
 }, {
@@ -1086,24 +1086,24 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pj3td")
 }],
-"loop": false,
+"loop": 0,
 "name": &"9",
 "speed": 15.0
 }]
 
-[node name="number_changer" type="Node2D"]
+[node name="number_changer" type="Node2D" unique_id=1946517895]
 script = ExtResource("1_4fhap")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1463342145]
 position = Vector2(0, -22)
 scale = Vector2(1, 8)
 texture = ExtResource("2_vyrjl")
 
-[node name="numbuer_animation_backward" type="AnimatedSprite2D" parent="."]
+[node name="numbuer_animation_backward" type="AnimatedSprite2D" parent="." unique_id=1856478775]
 sprite_frames = SubResource("SpriteFrames_2gv0m")
 animation = &"7"
 
-[node name="number_animation_forward" type="AnimatedSprite2D" parent="."]
+[node name="number_animation_forward" type="AnimatedSprite2D" parent="." unique_id=876685772]
 visible = false
 sprite_frames = SubResource("SpriteFrames_ist2k")
 animation = &"6"
